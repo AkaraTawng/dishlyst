@@ -4,13 +4,10 @@ import Cuisine from "./Cuisine";
 
 function Pages() {
   return (
-    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/cusine" element={<Cuisine/>}/>
+        <Route path="/cusine/:type" element={<Cuisine/>}/>
       </Routes>
-    </BrowserRouter>
- 
   )
 }
 
