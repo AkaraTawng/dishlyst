@@ -3,11 +3,15 @@ import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
 function Search() {
+    const [input, setInput] = useState('');
   return (
     <FormStyle>
         <div>
             <FaSearch/>
-            <input type="text" />
+            <input 
+            onChange={(e) => {setInput(e.target.value)}} type="text" 
+            value={input}/>
+            <h1>{input}</h1>
         </div>
     </FormStyle>
   )
