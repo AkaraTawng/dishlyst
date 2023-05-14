@@ -27,8 +27,8 @@ function Recipe() {
       </div>
 
       <Info>
-        <Button>Instructions</Button>
-        <Button>Ingredients</Button>
+        <Button onClick={() => setActiveTab('instructions')}>Instructions</Button>
+        <Button onClick={() => setActiveTab('ingredients')}>Ingredients</Button>
       </Info>
     </DetailWrapper>
   )
