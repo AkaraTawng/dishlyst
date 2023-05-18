@@ -36,7 +36,21 @@ function Veggie() {
           <Wrapper>
             <h3>Vegetarian Picks</h3>
 
-            <Splide options={{
+            <MobileContainer>
+            {veggie.map((recipe) => {
+                return(
+                    <Card key={recipe.id}>
+                      <Link to={'/recipe/' + recipe.id}>
+                        <p>{recipe.title}</p>
+                        <img src={recipe.image} alt={recipe.title} />
+                        <Gradient/>
+                      </Link>
+                    </Card>
+                );
+              })}
+            </MobileContainer>
+
+            {/* <Splide options={{
               perPage: 3, 
               arrows: false, 
               pagination: false, 
@@ -56,7 +70,7 @@ function Veggie() {
                   </SplideSlide>
                 );
               })}
-            </Splide>
+            </Splide> */}
           </Wrapper>
     </div>
   );
@@ -64,6 +78,10 @@ function Veggie() {
 
 const Wrapper = styled.div`
   margin: 4rem 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 `;
 
 const Card = styled.div`
@@ -105,6 +123,11 @@ const Gradient = styled.div`
   width: 100%;
   height: 100%;
   background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
+`;
+
+const MobileContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export default Veggie;

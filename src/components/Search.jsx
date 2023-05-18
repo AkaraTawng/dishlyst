@@ -26,11 +26,17 @@ function Search() {
 }
 
 const FormStyle = styled.form`
-    margin: 0rem 20rem;
+    /* margin: 0rem 20rem; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    /* width: 100%; */
  
     div {
         position: relative;
         width: 100%; 
+        background-color: orange;
     }
     input {
     border: none;
