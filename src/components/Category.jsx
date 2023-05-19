@@ -63,8 +63,10 @@ const SLink = styled(NavLink)`
     }
 
     &.active {
-        /* background: linear-gradient(to right, #f27121, #e94057); */
-        background: linear-gradient(to right, #D3CAE2, #E6C17A);
+        background: linear-gradient(to right,  #a1ffce, #faffd1); 
+         svg, h4 {
+            color: rgb(56, 56, 56);
+        }
     }
 `;
 
