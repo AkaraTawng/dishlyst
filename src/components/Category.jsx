@@ -42,10 +42,9 @@ function Category() {
 }
 
 const List = styled.div`
-width: 100%;
-background: blue;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
     align-items: center;
     margin: 2rem 0rem;
@@ -62,6 +61,7 @@ const SLink = styled(NavLink)`
     background: linear-gradient(35deg, #494949, #313131);
     width: 5rem;
     height: 5rem;
+    transform: scale(0.8);
     cursor: pointer;
 
     h4 {
