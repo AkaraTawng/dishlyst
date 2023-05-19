@@ -1,5 +1,6 @@
 import { FaPizzaSlice, FaHamburger } from 'react-icons/fa';
-import { GiNoodles, GiChopsticks } from 'react-icons/gi';
+import { GiNoodles, GiChopsticks, GiIndianPalace } from 'react-icons/gi';
+import { MdTempleBuddhist } from 'react-icons/md';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
@@ -26,11 +27,23 @@ function Category() {
             <GiChopsticks/>
             <h4>Japanese</h4>
         </SLink>
+
+        <SLink to={'/cuisine/Korean'}>
+            <MdTempleBuddhist/>
+            <h4>Korean</h4>
+        </SLink>
+
+        <SLink to={'/cuisine/Indian'}>
+            <GiIndianPalace/>
+            <h4>Indian</h4>
+        </SLink>
     </List>
   )
 }
 
 const List = styled.div`
+width: 100%;
+background: blue;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
