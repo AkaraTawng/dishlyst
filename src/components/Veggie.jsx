@@ -85,10 +85,12 @@ const Wrapper = styled.div`
 `;
 
 const Card = styled.div`
-  min-height: 25rem;
+  height: 15rem;
+  width: 15rem;
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
+  margin-bottom: 2rem;
 
   img {
     border-radius: 2rem;
@@ -96,6 +98,8 @@ const Card = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
+    /* height:20rem; */
+    /* width: 1rem; */
     object-fit: cover;
   }
 
@@ -128,6 +132,8 @@ const Gradient = styled.div`
 const MobileContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default Veggie;

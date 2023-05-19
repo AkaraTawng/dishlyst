@@ -30,13 +30,13 @@ const FormStyle = styled.form`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: green;
+    /* background-color: green; */
     /* width: 100%; */
  
     div {
         position: relative;
         width: 100%; 
-        background-color: orange;
+        /* background-color: orange; */
     }
     input {
     border: none;
