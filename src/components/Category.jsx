@@ -42,7 +42,7 @@ function Category() {
 }
 
 const List = styled.div`
-    width: 100%;
+    width: 98%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

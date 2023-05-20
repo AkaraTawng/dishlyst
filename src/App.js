@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
       <Nav>
         
-        <Logo to={'/'}><img src="./img/logo2.png" alt="dishlyst logo"/></Logo>
+        <Logo to={'/'}><img src="./img/logo1.png" alt="dishlyst logo"/></Logo>
       </Nav>
         <Search/>
         <Category/>
@@ -26,13 +26,13 @@ const Logo = styled(Link)`
 /* height: 3rem;
 width: 3rem; */
 img {
-  height: 11rem;
-  width: 15rem;
+  height: 4rem;
+  width: 13rem;
 }
 `;
 
 const Nav = styled.div`
-  padding: 1rem 0rem;
+  padding: 3rem 0rem;
   display: flex;
   justify-content: center;
   align-items: center;
