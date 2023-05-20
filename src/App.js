@@ -32,7 +32,7 @@ img {
 `;
 
 const Nav = styled.div`
-  padding: 4rem 0rem;
+  padding: 1rem 0rem;
   display: flex;
   justify-content: center;
   align-items: center;
