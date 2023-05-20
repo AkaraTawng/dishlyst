@@ -3,7 +3,6 @@ import Category from "./components/Category";
 import { BrowserRouter, Link } from "react-router-dom";
 import Search from "./components/Search";
 import { styled } from "styled-components";
-import { GiKnifeFork } from "react-icons/gi";
 
 
 
@@ -13,9 +12,8 @@ function App() {
       <BrowserRouter>
       <Nav>
         
-        <Logo to={'/'}></Logo>
+        <Logo to={'/'}><img src="./img/logo2.png" alt="dishlyst logo"/></Logo>
       </Nav>
-      <img src="./img/logo1.png"/>
         <Search/>
         <Category/>
         <Pages />
@@ -25,8 +23,12 @@ function App() {
 }
 
 const Logo = styled(Link)`
-height: 8rem;
-width: 8rem;
+/* height: 3rem;
+width: 3rem; */
+img {
+  height: 11rem;
+  width: 15rem;
+}
 `;
 
 const Nav = styled.div`
@@ -34,9 +36,6 @@ const Nav = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  svg {
-    font-size: 2rem;
-  }
 `;
 
 export default App;
