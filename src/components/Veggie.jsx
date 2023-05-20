@@ -110,7 +110,7 @@ const Card = styled.div`
     bottom: 0%;
     transform: translate(-50%, 0%);
     color: white;
-    width: 100%;
+    width: 90%;
     text-align: center;
     font-weight: 600;
     font-size: 1rem;
@@ -126,7 +126,7 @@ const Gradient = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7));
 `;
 
 const MobileContainer = styled.div`
