@@ -12,9 +12,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Nav>
-        <GiKnifeFork/>
-        <Logo to={'/'}>DishLyst</Logo>
+        
+        <Logo to={'/'}></Logo>
       </Nav>
+      <img src="./img/logo1.png"/>
         <Search/>
         <Category/>
         <Pages />
@@ -24,10 +25,8 @@ function App() {
 }
 
 const Logo = styled(Link)`
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: 400;
-  font-family: 'Lobster Two', cursive;
+height: 8rem;
+width: 8rem;
 `;
 
 const Nav = styled.div`
