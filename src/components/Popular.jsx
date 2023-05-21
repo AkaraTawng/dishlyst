@@ -35,7 +35,21 @@ function Popular() {
           <Wrapper>
             <h3>Popular Picks</h3>
 
-            <Splide options={{
+            <MobileContainer>
+            {popular.map((recipe) => {
+                return(
+                    <Card key={recipe.id}>
+                      <Link to={'/recipe' + recipe.id}>
+                        <p>{recipe.title}</p>
+                        <img src={recipe.image} alt={recipe.title} />
+                        <Gradient/>
+                      </Link>
+                    </Card>
+                );
+              })}
+            </MobileContainer>
+
+            {/* <Splide options={{
               perPage: 4, 
               arrows: false, 
               pagination: false, 
@@ -55,7 +69,7 @@ function Popular() {
                   </SplideSlide>
                 );
               })}
-            </Splide>
+            </Splide> */}
           </Wrapper>
     </div>
   )
@@ -63,13 +77,19 @@ function Popular() {
 
 const Wrapper = styled.div`
   margin: 4rem 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 `;
 
 const Card = styled.div`
-  min-height: 25rem;
+  height: 15rem;
+  width: 15rem;
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
+  margin-bottom: 2rem;
 
   img {
     border-radius: 2rem;
@@ -103,7 +123,19 @@ const Gradient = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.6));
+  &:active
+    {
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.1));
+   }
+`;
+
+
+const MobileContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default Popular;
