@@ -48,6 +48,7 @@ const List = styled.div`
     flex-wrap: wrap;
     align-items: center;
     margin: 2rem 0rem;
+    margin: 3rem 0 -2rem 0;
 `;
 
 const SLink = styled(NavLink)`

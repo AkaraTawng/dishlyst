@@ -98,8 +98,6 @@ const Card = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    /* height:20rem; */
-    /* width: 1rem; */
     object-fit: cover;
   }
 
@@ -126,7 +124,8 @@ const Gradient = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7));
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
+  
 `;
 
 const MobileContainer = styled.div`
