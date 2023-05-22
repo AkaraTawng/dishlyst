@@ -19,7 +19,7 @@ function Recipe() {
     fetchDetails();
   }, [params.name]);
 
-  // console.log(details.extendedIngredients)
+  console.log(details)
 
   return (
     // <DetailWrapper>
@@ -115,10 +115,14 @@ const DetailWrapper = styled.div`
     }
     li {
       margin-bottom: 2rem;
+      &::marker {
+        font-weight: 700;
+        }
     }
     ul {
       margin-top: 2rem;
     }
+
     p {
       margin-top: 2rem;
       line-height: 1.5rem;
