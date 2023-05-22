@@ -133,6 +133,7 @@ const DetailWrapper = styled.div`
       width: 17rem;
       border-radius: 2rem;
       margin-bottom: 2.5rem;
+      object-fit: cover;
     }
 `;
 

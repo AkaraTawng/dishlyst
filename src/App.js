@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
       <Nav>
         
-        <Logo to={'/'}><img src="./img/logo1.png" alt="dishlyst logo"/></Logo>
+        <Logo to={'/'}><img src="../img/logo1.png" alt="dishlyst logo"/></Logo>
       </Nav>
         <Search/>
         <Category/>
