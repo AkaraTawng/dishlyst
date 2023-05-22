@@ -92,6 +92,10 @@ const Card = styled.div`
   position: relative;
   margin-bottom: 2rem;
 
+
+  /* width: 45%; */
+
+
   img {
     border-radius: 2rem;
     position: absolute;
@@ -136,6 +140,11 @@ const MobileContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  /* flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around; */
+
 `;
 
 export default Veggie;
