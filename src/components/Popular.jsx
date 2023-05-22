@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide"
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Link } from "react-router-dom";
+import { devices } from "../breakpoints";
 
 
 function Popular() {
@@ -22,7 +23,7 @@ function Popular() {
       if(check){
         setPopular(JSON.parse(check));
       } else{
-        const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`);
+        const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=8`);
         const data = await api.json();
 
         localStorage.setItem('popular', JSON.stringify(data.recipes));
@@ -91,6 +92,10 @@ const Card = styled.div`
   position: relative;
   margin-bottom: 2rem;
 
+  @media ${devices.tablet} {
+    width: 45%;
+  }
+
   img {
     border-radius: 2rem;
     position: absolute;
@@ -136,6 +141,12 @@ const MobileContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media ${devices.tablet} {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 `;
 
 export default Popular;
