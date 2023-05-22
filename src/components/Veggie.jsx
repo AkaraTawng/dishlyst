@@ -3,6 +3,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide"
 import '@splidejs/splide/dist/css/splide.min.css';
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { devices } from "../breakpoints";
 
 
 
@@ -23,7 +24,7 @@ function Veggie() {
     if(check){
       setVeggie(JSON.parse(check));
     } else{
-      const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9&tags=vegetarian`);
+      const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=8&tags=vegetarian`);
       const data = await api.json();
 
       localStorage.setItem('veggie', JSON.stringify(data.recipes));
@@ -92,9 +93,9 @@ const Card = styled.div`
   position: relative;
   margin-bottom: 2rem;
 
-
-  /* width: 45%; */
-
+  @media ${devices.tablet} {
+    width: 45%;
+  }
 
   img {
     border-radius: 2rem;
@@ -141,9 +142,12 @@ const MobileContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  /* flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around; */
+  @media ${devices.tablet} {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
 
 `;
 
