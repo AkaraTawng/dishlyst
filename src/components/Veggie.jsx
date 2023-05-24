@@ -42,7 +42,7 @@ function Veggie() {
                 return(
                     <Card key={recipe.id}>
                       <Link to={'/recipe/' + recipe.id}>
-                        <p>{recipe.title}</p>
+                        <h4>{recipe.title}</h4>
                         <img src={recipe.image} alt={recipe.title} />
                         <Gradient/>
                       </Link>
@@ -106,7 +106,7 @@ const Card = styled.div`
     object-fit: cover;
   }
 
-  p {
+  h4 {
     position: absolute;
     z-index: 2;
     left: 50%;
