@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 import { devices } from "../breakpoints";
 import { Wrapper, Card, Gradient, MobileContainer } from "../SharedStyles.js";
 
-
-
 function Veggie() {
 
   const [veggie, setVeggie] = useState([]);
@@ -16,8 +14,6 @@ function Veggie() {
           getVeggie();
       }, []);
 
-      
-      
   const getVeggie = async () => {
   
     const check = localStorage.getItem('veggie');
