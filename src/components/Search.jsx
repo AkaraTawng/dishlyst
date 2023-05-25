@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { devices } from "../breakpoints";
 
 
 function Search() {
@@ -33,6 +34,14 @@ const FormStyle = styled.form`
     div {
         position: relative;
         width: 90%; 
+
+        @media ${devices.tablet} {
+            width: 60%;
+        }
+
+        @media ${devices.desktopM} {
+            width: 50rem;
+        }
     }
     input {
     border: none;
