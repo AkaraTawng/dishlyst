@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link, useParams} from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Wrapper, Card, Gradient} from "../SharedStyles.js";
+import { Wrapper, WrapperSecondary,Card, Gradient} from "../SharedStyles.js";
 function Cuisine() {
 
   const [cuisine, setCuisine] = useState([]);
@@ -25,7 +25,7 @@ function Cuisine() {
     //   exit={{opacity:0}}
     //   transition={{duration:0.5}}
     // >
-    <Wrapper>
+    <WrapperSecondary>
       {cuisine.map((item) => {
         return (
           <Card key={item.id}>
@@ -38,7 +38,7 @@ function Cuisine() {
         )
       })}
     {/* </Grid> */}
-    </Wrapper>
+    </WrapperSecondary>
   )
 }
 

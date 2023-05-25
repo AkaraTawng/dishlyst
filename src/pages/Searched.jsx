@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import { devices } from "../breakpoints";
-import { Wrapper, Card, Gradient} from "../SharedStyles.js";
+import { Wrapper, WrapperSecondary, Card, Gradient} from "../SharedStyles.js";
 
 
 
@@ -23,7 +23,7 @@ useEffect(() => {
 }, [params.search]);
 
   return (
-    <Wrapper>
+    <WrapperSecondary>
       {searchedRecipes.map((item) => {
         return (
           <Card key={item.id}>
@@ -35,7 +35,7 @@ useEffect(() => {
           </Card>
         )
       })}
-      </Wrapper>
+      </WrapperSecondary>
   )
 };
 

@@ -7,6 +7,15 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 text-align: center;
+align-items: center;
+`;
+
+const WrapperSecondary = styled(Wrapper)`
+    @media ${devices.tablet} {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 `;
 
 const Card = styled.div`
@@ -65,6 +74,7 @@ const MobileContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 
   @media ${devices.tablet} {
     flex-direction: row;
@@ -73,6 +83,6 @@ const MobileContainer = styled.div`
   }
 `;
 
-export { Wrapper, Card, Gradient, MobileContainer};
+export { Wrapper, WrapperSecondary, Card, Gradient, MobileContainer};
 
 
