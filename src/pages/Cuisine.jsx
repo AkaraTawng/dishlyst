@@ -52,13 +52,6 @@ const Wrapper = styled.div`
   justify-content: center;
   text-align: center;
   align-items: center;
-
-  @media ${devices.tablet} {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-
 `;
 
 const Card = styled.div`
