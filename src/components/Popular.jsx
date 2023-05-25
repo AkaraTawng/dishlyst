@@ -40,7 +40,7 @@ function Popular() {
                 return(
                     <Card key={recipe.id}>
                       <Link to={'/recipe/' + recipe.id}>
-                        <p>{recipe.title}</p>
+                        <h4>{recipe.title}</h4>
                         <img src={recipe.image} alt={recipe.title} />
                         <Gradient/>
                       </Link>
