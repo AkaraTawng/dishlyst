@@ -149,6 +149,6 @@ const MobileContainer = styled.div`
   }
 
 
-`;
+// `;
 
 export default Veggie;
