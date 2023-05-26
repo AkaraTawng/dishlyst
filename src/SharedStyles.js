@@ -5,7 +5,7 @@ const Wrapper = styled.div`
 margin: 4rem 0rem;
 display: flex;
 flex-direction: column;
-justify-content: center;
+justify-content: space-around;
 text-align: center;
 align-items: center;
 `;
@@ -16,6 +16,8 @@ const WrapperSecondary = styled(Wrapper)`
     flex-wrap: wrap;
     justify-content: space-around;
   }
+
+  
 `;
 
 const Card = styled.div`
@@ -29,6 +31,13 @@ const Card = styled.div`
   @media ${devices.tablet} {
     width: 45%;
   }
+
+  @media ${devices.laptop} {
+    width: 23rem;
+    width: 30%;
+    height: 20rem;
+  }
+
 
   img {
     border-radius: 2rem;
