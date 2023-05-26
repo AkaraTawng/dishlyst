@@ -3,6 +3,7 @@ import Category from "./components/Category";
 import { BrowserRouter, Link } from "react-router-dom";
 import Search from "./components/Search";
 import { styled } from "styled-components";
+import ShowNew from "./components/ShowNew";
 
 
 
@@ -16,6 +17,7 @@ function App() {
       </Nav>
         <Search/>
         <Category/>
+        <ShowNew/>
         <Pages />
       </BrowserRouter>
     </div>

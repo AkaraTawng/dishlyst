@@ -12,13 +12,6 @@ import { useMediaQuery } from 'react-responsive';
 
 function Veggie() {
 
-//rea
- 
-
-  // if(window.innerWidth === 760) {
-  //    console.log('tablet')
-  // }
-
   const [veggie, setVeggie] = useState([]);
 
   
@@ -56,6 +49,7 @@ function Veggie() {
   return (
       <div>
           <Wrapper>
+
             <h3>Vegetarian Picks</h3>
 
             <MobileContainer>
