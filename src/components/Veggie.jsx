@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { devices } from "../breakpoints";
 import { Wrapper, Card, Gradient, MobileContainer } from "../SharedStyles.js";
 import { useMediaQuery } from 'react-responsive';
+import ShowNew from "./ShowNew";
 
 
 
@@ -48,6 +49,7 @@ function Veggie() {
 
   return (
       <div>
+         <ShowNew/>
           <Wrapper>
 
             <h3>Vegetarian Picks</h3>

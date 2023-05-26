@@ -12,12 +12,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Nav>
-        
         <Logo to={'/'}><img src="../img/logo1.png" alt="dishlyst logo"/></Logo>
       </Nav>
         <Search/>
         <Category/>
-        <ShowNew/>
         <Pages />
       </BrowserRouter>
     </div>
