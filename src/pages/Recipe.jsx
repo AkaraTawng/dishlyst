@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
+import AddToFavorites from "../components/AddToFavorites";
+
 
 
 function Recipe() {
@@ -62,6 +64,7 @@ function Recipe() {
 
       <Info>
         <ButtonContainer>
+          <AddToFavorites/>
           <Button 
             className={activeTab === 'summary' ? 'active' : ''}
             onClick={() => setActiveTab('summary')}>Nutrition Info
@@ -143,10 +146,9 @@ const Button = styled.button`
   color: white;
   background-color: white;
   background: linear-gradient(35deg, #494949, #313131);
-  /* border: 2px solid black; */
-  /* margin-right: 2rem; */
   font-weight: 600;
-  /* margin-bottom: 1rem; */
+  margin-bottom: .5rem;
+  cursor: pointer;
   &.active {
   background: linear-gradient(to right,  #a1ffce, #faffd1); 
   color: rgb(56, 56, 56);
