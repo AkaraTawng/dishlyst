@@ -1,13 +1,19 @@
 import { styled } from "styled-components";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { BsFillSuitHeartFill } from 'react-icons/bs';
+import { VscChromeClose } from 'react-icons/vsc';
 
-function Favorites() {
+function FavoriteBtn() {
+
+  let location = useLocation();
+  
   return (
     <FavLinkContainer>
-        <FavLink>
-        <BsFillSuitHeartFill/>
-        </FavLink>
+      {location.pathname === '/' ?  <FavLink to={'/favorites/'}>
+          <BsFillSuitHeartFill/>
+        </FavLink> :    <FavCloseLink to={'/'}>
+          < VscChromeClose/>
+        </FavCloseLink>}
     </FavLinkContainer>
   )
 };
@@ -25,9 +31,11 @@ color: white;
 padding: 0.8rem 1rem;
 font-size: 1.2rem;
 margin: 10px 10px 0 0;
+z-index: 2;
 &:active {
     color: red;
 }
 `;
+const FavCloseLink = styled(FavLink)``;
 
-export default Favorites;
+export default FavoriteBtn;

@@ -3,8 +3,7 @@ import Category from "./components/Category";
 import { BrowserRouter, Link } from "react-router-dom";
 import Search from "./components/Search";
 import { styled } from "styled-components";
-import ShowNew from "./components/ShowNew";
-import Favorites from "./components/Favorites";
+import FavoriteBtn from "./components/FavoriteBtn";
 
 
 
@@ -12,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Favorites/>
+      <FavoriteBtn/>
       <Nav>
         <Logo to={'/'}><img src="../img/logo1.png" alt="dishlyst logo"/></Logo>
       </Nav>
