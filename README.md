@@ -1,5 +1,5 @@
 # What
-
+- Dishlyst is a recipe app used to help you find new dishes to try and give you baking / cooking inspiration.
 
 # Getting Started with Create React App
 
