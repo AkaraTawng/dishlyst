@@ -1,8 +1,19 @@
+import { useState } from "react";
 import { styled } from "styled-components";
 
+
 function Favorites() {
+
+  const [favList, setFavList] = useState(localStorage.getItem('favorites'));
   return (
-    <FavPageContainer>Favorites</FavPageContainer>
+    <FavPageContainer>
+      {favList}
+      {/* <ul>
+      {favList.map(listItem => {
+        <li>{listItem}</li>
+      })}
+      </ul> */}
+    </FavPageContainer>
   )
 }
 

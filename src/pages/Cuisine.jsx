@@ -15,7 +15,6 @@ function Cuisine() {
     
     useEffect(() => {
       getCuisine(params.type);
-      console.log(params.type)
     }, [params.type]);
     
   return (

@@ -6,14 +6,18 @@ import { VscChromeClose } from 'react-icons/vsc';
 function FavoriteBtn() {
 
   let location = useLocation();
+  let pathname = location.pathname;
   
   return (
     <FavLinkContainer>
-      {location.pathname === '/' ?  <FavLink to={'/favorites/'}>
+      {pathname !== '/favorites/' ?  
+        <FavLink to={'/favorites/'}>
           <BsFillSuitHeartFill/>
-        </FavLink> :    <FavCloseLink to={'/'}>
-          < VscChromeClose/>
-        </FavCloseLink>}
+        </FavLink> 
+        : pathname === '/favorites/' ?   
+        <FavCloseLink to={'/'}>
+          <VscChromeClose/>
+        </FavCloseLink> : null }
     </FavLinkContainer>
   )
 };

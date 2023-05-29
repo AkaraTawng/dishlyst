@@ -1,18 +1,53 @@
 //render in recipe pages
 import { BsFillSuitHeartFill } from 'react-icons/bs';
 import { styled } from "styled-components"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
-function AddToFavorites() {
 
+function AddToFavorites(props) {
+
+    const location = useLocation();
     const [active, setActive] = useState(false);
+    const [favorites, setFavorites] = useState(['1', '2']);
     const handleActive = () => {
         setActive(!active);
     };
 
+    useEffect(() => {
+        if(active) {
+            addToFavorites();}
+        // } else if(!active) {
+        //     removeFromFavorites();
+        // }
+    }, [active]);
+
+    const addToFavorites = () => {
+// console.log(location.pathname)
+      if(favorites.includes(location.pathname)){
+        console.log('already added')
+      } else {
+        let newFavorite = location.pathname;
+         let updatedFavorites = [...favorites, newFavorite];
+        setFavorites(updatedFavorites)
+       
+        localStorage.setItem('favorites', JSON.stringify(favorites))
+        console.log(updatedFavorites)
+      }
+       
+    };
+
+
+    const removeFromFavorites = () => {
+        // const filteredFavorites = favorites.filter(favorite => favorite !== location.pathname);
+        // setFavorites([...filteredFavorites])
+        // localStorage.removeItem('favorites', favorites);
+        
+    };
+
   return (
     <AddToFavBtn className={active ? 'active' : null} onClick={handleActive}>
-        {!active ? 'Add to favorites' : 'Remove from'}
+        {!active ? 'Add to favorites' : 'Remove from favorites'}
         <div>
         <BsFillSuitHeartFill/>
         </div>
