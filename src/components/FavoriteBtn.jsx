@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation} from 'react-router-dom';
 import { BsFillSuitHeartFill } from 'react-icons/bs';
 import { VscChromeClose } from 'react-icons/vsc';
 
@@ -7,7 +7,7 @@ function FavoriteBtn() {
 
   let location = useLocation();
   let pathname = location.pathname;
-  
+
   return (
     <FavLinkContainer>
       {pathname !== '/favorites/' ?  
@@ -15,7 +15,7 @@ function FavoriteBtn() {
           <BsFillSuitHeartFill/>
         </FavLink> 
         : pathname === '/favorites/' ?   
-        <FavCloseLink to={'/'}>
+        <FavCloseLink to={-1}>
           <VscChromeClose/>
         </FavCloseLink> : null }
     </FavLinkContainer>
