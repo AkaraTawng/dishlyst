@@ -62,7 +62,7 @@ function Recipe() {
 
       <Info>
         <ButtonContainer>
-          <AddToFavorites/>
+          <AddToFavorites details={details}/>
           <Button 
             className={activeTab === 'summary' ? 'active' : ''}
             onClick={() => setActiveTab('summary')}>Nutrition Info

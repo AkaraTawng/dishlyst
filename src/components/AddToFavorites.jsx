@@ -5,55 +5,54 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 
-function AddToFavorites(props) {
-
+function AddToFavorites(details) {
     const location = useLocation();
     const [active, setActive] = useState(false);
-    const [favorites, setFavorites] = useState(['1', '2']);
+    const [favorites, setFavorites] = useState([]);
     const handleActive = () => {
         setActive(!active);
     };
 
-    useEffect(() => {
-        if(active) {
-            addToFavorites();}
-        // } else if(!active) {
-        //     removeFromFavorites();
-        // }
-    }, [active]);
+    // useEffect(() => {
+        
+    // }, [active]);
+
+    const handleFavorites = () => {
+      handleActive();
+      if(active){
+        removeFromFavorites();
+      } else if(!active) {
+        addToFavorites();
+    }
+  };
 
     const addToFavorites = () => {
-// console.log(location.pathname)
-      if(favorites.includes(location.pathname)){
-        console.log('already added')
-      } else {
-        let newFavorite = location.pathname;
-         let updatedFavorites = [...favorites, newFavorite];
-        setFavorites(updatedFavorites)
-       
-        localStorage.setItem('favorites', JSON.stringify(favorites))
-        console.log(updatedFavorites)
-      }
-       
+      handleActive();
+        setFavorites([...favorites, details]);
+        console.log(favorites)
+        localStorage.setItem('favorites', JSON.stringify(favorites));
     };
-
-
+   
     const removeFromFavorites = () => {
-        // const filteredFavorites = favorites.filter(favorite => favorite !== location.pathname);
-        // setFavorites([...filteredFavorites])
-        // localStorage.removeItem('favorites', favorites);
-        
+      handleActive();
+      let filteredFavorites = favorites.filter(favorite => favorite !== details);
+      setFavorites(filteredFavorites)
+      console.log('REMOVE')
     };
+
+ 
 
   return (
-    <AddToFavBtn className={active ? 'active' : null} onClick={handleActive}>
+    <AddToFavBtn className={active ? 'active' : null} onClick={handleFavorites}>
         {!active ? 'Add to favorites' : 'Remove from favorites'}
         <div>
         <BsFillSuitHeartFill/>
         </div>
     </AddToFavBtn>
   )
+
 };
+
 
 const AddToFavBtn = styled.button`
 display: flex;
@@ -72,5 +71,7 @@ align-items: center;
   }
  
 `;
+
+
 
 export default AddToFavorites
