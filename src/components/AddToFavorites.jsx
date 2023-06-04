@@ -5,10 +5,12 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 
-function AddToFavorites(details) {
-    const location = useLocation();
+function AddToFavorites({details}) {
+    // const location = useLocation();
     const [active, setActive] = useState(false);
     const [favorites, setFavorites] = useState([]);
+    const {title, id, image} = details
+    // console.log(details)
     const handleActive = () => {
         setActive(!active);
     };
@@ -19,26 +21,22 @@ function AddToFavorites(details) {
 
     const handleFavorites = () => {
       handleActive();
-      if(active){
-        removeFromFavorites();
-      } else if(!active) {
-        addToFavorites();
-    }
+      addToFavorites();
   };
 
     const addToFavorites = () => {
       handleActive();
-        setFavorites([...favorites, details]);
+        setFavorites([...favorites, {title, id, image}]);
         console.log(favorites)
         localStorage.setItem('favorites', JSON.stringify(favorites));
     };
    
-    const removeFromFavorites = () => {
-      handleActive();
-      let filteredFavorites = favorites.filter(favorite => favorite !== details);
-      setFavorites(filteredFavorites)
-      console.log('REMOVE')
-    };
+    // const removeFromFavorites = () => {
+    //   handleActive();
+    //   let filteredFavorites = favorites.filter(favorite => favorite.id !== id);
+    //   setFavorites(filteredFavorites)
+    //   console.log(favorites)
+    // };
 
  
 
