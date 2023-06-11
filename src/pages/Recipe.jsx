@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
-
+import { devices } from "../breakpoints";
 
 function Recipe() {
 
@@ -54,14 +54,32 @@ function Recipe() {
     // </DetailWrapper>
     // <DetailWrapper>
     <DetailWrapper>
-      {/* <div> */}
         <h2>{details.title}</h2>
-        <img src={details.image} alt="" />
         
-      {/* </div> */}
+        <ButtonImageContainer>
+          
+          <img src={details.image} alt="" />
+
+          <ButtonContainer>
+            <Button 
+              className={activeTab === 'summary' ? 'active' : ''}
+              onClick={() => setActiveTab('summary')}>Nutrition Info
+            </Button>
+            <Button 
+              className={activeTab === 'ingredients' ? 'active' : ''}
+              onClick={() => setActiveTab('ingredients')}>Ingredients
+            </Button>
+            <Button
+              className={activeTab === 'instructions' ? 'active' : ''}
+              onClick={() => setActiveTab('instructions')}>Instructions
+            </Button>
+          </ButtonContainer>
+        
+        </ButtonImageContainer>
+
 
       <Info>
-        <ButtonContainer>
+        {/* <ButtonContainer>
           <Button 
             className={activeTab === 'summary' ? 'active' : ''}
             onClick={() => setActiveTab('summary')}>Nutrition Info
@@ -74,7 +92,7 @@ function Recipe() {
             className={activeTab === 'instructions' ? 'active' : ''}
             onClick={() => setActiveTab('instructions')}>Instructions
           </Button>
-        </ButtonContainer>
+        </ButtonContainer> */}
         {activeTab === 'instructions' && (
           <div>
             <p dangerouslySetInnerHTML={{__html: details.instructions}}></p>
@@ -97,6 +115,9 @@ function Recipe() {
     </DetailWrapper>
   )
 }
+
+
+
 
 const DetailWrapper = styled.div`
     margin-top: 6rem;
@@ -171,6 +192,24 @@ const ButtonContainer = styled.div`
   justify-content: space-around;
   width: 11rem;
   height: 11rem;
+  @media ${devices.tablet} {
+    margin-left: 5rem;
+  }
+`;
+
+const ButtonImageContainer = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+  @media ${devices.tablet} {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+
 `;
 
 export default Recipe;
