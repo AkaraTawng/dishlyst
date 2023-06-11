@@ -79,20 +79,6 @@ function Recipe() {
 
 
       <Info>
-        {/* <ButtonContainer>
-          <Button 
-            className={activeTab === 'summary' ? 'active' : ''}
-            onClick={() => setActiveTab('summary')}>Nutrition Info
-          </Button>
-          <Button 
-            className={activeTab === 'ingredients' ? 'active' : ''}
-            onClick={() => setActiveTab('ingredients')}>Ingredients
-          </Button>
-          <Button
-            className={activeTab === 'instructions' ? 'active' : ''}
-            onClick={() => setActiveTab('instructions')}>Instructions
-          </Button>
-        </ButtonContainer> */}
         {activeTab === 'instructions' && (
           <div>
             <p dangerouslySetInnerHTML={{__html: details.instructions}}></p>
@@ -155,6 +141,10 @@ const DetailWrapper = styled.div`
       border-radius: 2rem;
       margin-bottom: 2.5rem;
       object-fit: cover;
+      @media ${devices.tablet} {
+        width: 25rem;
+        height: 23rem;
+      }
     }
 `;
 
@@ -206,7 +196,6 @@ justify-content: center;
     display: flex;
     justify-content: center;
     flex-direction: row;
-    align-items: flex-start;
   }
 
 
