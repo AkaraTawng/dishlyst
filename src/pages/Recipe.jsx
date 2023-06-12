@@ -133,6 +133,12 @@ const DetailWrapper = styled.div`
     p {
       margin-top: 2rem;
       line-height: 1.8rem;
+      @media ${devices.laptop} {
+        padding: 0 12%;
+      }
+      @media ${devices.desktopL} {
+        padding: 0 20%;
+      }
     }
 
     img {
