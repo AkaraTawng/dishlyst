@@ -142,8 +142,8 @@ const DetailWrapper = styled.div`
     }
 
     img {
-      height: 17rem;
-      width: 17rem;
+      height: clamp(17rem, 15.4rem + 8vw, 25rem);
+      width: clamp(17rem, 15.8rem + 6vw, 23rem);
       border-radius: 2rem;
       margin-bottom: 2.5rem;
       object-fit: cover;
