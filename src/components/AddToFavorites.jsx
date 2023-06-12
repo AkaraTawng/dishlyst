@@ -9,8 +9,8 @@ function AddToFavorites({details}) {
     // const location = useLocation();
     const [active, setActive] = useState(false);
     const [favorites, setFavorites] = useState([]);
-    const {title, id, image} = details
-    // console.log(details)
+    const {title, id, image} = details;
+    console.log(details)
     const handleActive = () => {
         setActive(!active);
     };

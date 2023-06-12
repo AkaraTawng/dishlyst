@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 import AddToFavorites from "../components/AddToFavorites";
 
 
+import { devices } from "../breakpoints";
 
 function Recipe() {
 
@@ -21,61 +22,37 @@ function Recipe() {
     fetchDetails();
   }, [params.name]);
 
-  return (
-    // <DetailWrapper>
-    //   <div>
-    //     <h2>{details.title}</h2>
-    //     <img src={details.image} alt="" />
-    //   </div>
+  // console.log(details) ADD ALT TEXT TO IMG 
 
-    //   <Info>
-    //     <Button
-    //       className={activeTab === 'instructions' ? 'active' : ''}
-    //       onClick={() => setActiveTab('instructions')}>Instructions
-    //     </Button>
-    //     <Button 
-    //       className={activeTab === 'ingredients' ? 'active' : ''}
-    //       onClick={() => setActiveTab('ingredients')}>Ingredients
-    //     </Button>
-    //     {activeTab === 'instructions' && (
-    //       <div>
-    //         <h3 dangerouslySetInnerHTML={{__html: details.summary}}></h3>
-    //         <h3 dangerouslySetInnerHTML={{__html: details.instructions}}></h3>
-    //       </div>
-    //     )}
-    //     {activeTab === 'ingredients' && (
-    //       <ul>
-    //         {details.extendedIngredients.map((ingredient) => {
-    //           <li key={ingredient.id}>{ingredient.original}</li>
-    //         })}
-    //       </ul>
-    //     )}
-    //   </Info>
-    // </DetailWrapper>
-    // <DetailWrapper>
+  return (
     <DetailWrapper>
-      {/* <div> */}
         <h2>{details.title}</h2>
-        <img src={details.image} alt="" />
         
-      {/* </div> */}
+        <ButtonImageContainer>
+          
+          <img src={details.image} alt="" />
+
+          <ButtonContainer>
+           
+           <AddToFavorites details={details}/>
+            <Button 
+              className={activeTab === 'summary' ? 'active' : ''}
+              onClick={() => setActiveTab('summary')}>Nutrition Info
+            </Button>
+            <Button 
+              className={activeTab === 'ingredients' ? 'active' : ''}
+              onClick={() => setActiveTab('ingredients')}>Ingredients
+            </Button>
+            <Button
+              className={activeTab === 'instructions' ? 'active' : ''}
+              onClick={() => setActiveTab('instructions')}>Instructions
+            </Button>
+          </ButtonContainer>
+        
+        </ButtonImageContainer>
+
 
       <Info>
-        <ButtonContainer>
-          <AddToFavorites details={details}/>
-          <Button 
-            className={activeTab === 'summary' ? 'active' : ''}
-            onClick={() => setActiveTab('summary')}>Nutrition Info
-          </Button>
-          <Button 
-            className={activeTab === 'ingredients' ? 'active' : ''}
-            onClick={() => setActiveTab('ingredients')}>Ingredients
-          </Button>
-          <Button
-            className={activeTab === 'instructions' ? 'active' : ''}
-            onClick={() => setActiveTab('instructions')}>Instructions
-          </Button>
-        </ButtonContainer>
         {activeTab === 'instructions' && (
           <div>
             <p dangerouslySetInnerHTML={{__html: details.instructions}}></p>
@@ -98,6 +75,9 @@ function Recipe() {
     </DetailWrapper>
   )
 }
+
+
+
 
 const DetailWrapper = styled.div`
     margin-top: 6rem;
@@ -126,15 +106,25 @@ const DetailWrapper = styled.div`
 
     p {
       margin-top: 2rem;
-      line-height: 1.5rem;
+      line-height: 1.8rem;
+      @media ${devices.laptop} {
+        padding: 0 12%;
+      }
+      @media ${devices.desktopL} {
+        padding: 0 20%;
+      }
     }
 
     img {
-      height: 17rem;
-      width: 17rem;
+      height: clamp(17rem, 15.4rem + 8vw, 25rem);
+      width: clamp(17rem, 15.8rem + 6vw, 23rem);
       border-radius: 2rem;
       margin-bottom: 2.5rem;
       object-fit: cover;
+      @media ${devices.tablet} {
+        width: 25rem;
+        height: 23rem;
+      }
     }
 `;
 
@@ -171,6 +161,23 @@ const ButtonContainer = styled.div`
   justify-content: space-around;
   width: 11rem;
   height: 11rem;
+  @media ${devices.tablet} {
+    margin-left: 5rem;
+  }
+`;
+
+const ButtonImageContainer = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+  @media ${devices.tablet} {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+
 `;
 
 export default Recipe;
