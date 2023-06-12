@@ -19,7 +19,7 @@ function Recipe() {
     fetchDetails();
   }, [params.name]);
 
-  console.log(details)
+  // console.log(details)
 
   return (
     // <DetailWrapper>
@@ -132,7 +132,7 @@ const DetailWrapper = styled.div`
 
     p {
       margin-top: 2rem;
-      line-height: 1.5rem;
+      line-height: 1.8rem;
     }
 
     img {
