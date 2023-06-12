@@ -1,0 +1,14 @@
+import { createContext } from "react"
+
+const FavoritesContext = createContext();
+
+function FavoritesProvider() {
+    const favorites = [];
+  return (
+    <FavoritesContext.Provider value={favorites}>
+        {Children.props}
+    </FavoritesContext.Provider>
+  )
+}
+
+export { FavoritesContext, FavoritesProvider };
