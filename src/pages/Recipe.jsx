@@ -19,7 +19,7 @@ function Recipe() {
     fetchDetails();
   }, [params.name]);
 
-  // console.log(details)
+  console.log(details)
 
   return (
     // <DetailWrapper>
@@ -58,7 +58,7 @@ function Recipe() {
         
         <ButtonImageContainer>
           
-          <img src={details.image} alt="" />
+          <img src={details.image} alt={details.title} />
 
           <ButtonContainer>
             <Button 
