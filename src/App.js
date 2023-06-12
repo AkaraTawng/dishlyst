@@ -4,11 +4,12 @@ import { BrowserRouter, Link } from "react-router-dom";
 import Search from "./components/Search";
 import { styled } from "styled-components";
 import FavoriteBtn from "./components/FavoriteBtn";
+import { FavoritesProvider } from "./components/FavoritesProviderjsx";
 
 
 
 function App() {
-  return (
+  return ( <FavoritesProvider>
     <div className="App">
       <BrowserRouter>
       <FavoriteBtn/>
@@ -20,7 +21,7 @@ function App() {
         <Pages />
       </BrowserRouter>
     </div>
-  );
+    </FavoritesProvider>);
 }
 
 const Logo = styled(Link)`
