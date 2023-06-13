@@ -22,7 +22,7 @@ function Recipe() {
     fetchDetails();
   }, [params.name]);
 
-  console.log(details)
+  // console.log(details)
 
   return (
     <DetailWrapper>

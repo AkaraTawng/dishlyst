@@ -11,8 +11,9 @@ import { FavoritesProvider } from "./components/FavoritesProvider";
 function App() {
   return ( <>
     <div className="App">
-      <FavoritesProvider>
+      
         <BrowserRouter>
+        <FavoritesProvider>
           <FavoriteBtn/>
           <Nav>
           <Logo to={'/'}><img src="../img/logo1.png" alt="dishlyst logo"/></Logo>
@@ -20,8 +21,9 @@ function App() {
           <Search/>
           <Category/>
           <Pages />
+          </FavoritesProvider>
         </BrowserRouter>
-      </FavoritesProvider>
+      
     </div>
   </>);
 }

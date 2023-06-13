@@ -1,16 +1,22 @@
 //render in recipe pages
 import { BsFillSuitHeartFill } from 'react-icons/bs';
 import { styled } from "styled-components"
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useFavoritesContext } from './FavoritesProvider';
+
+
 
 
 function AddToFavorites({details}) {
-    // const location = useLocation();
+
+  const { favorites, addToFavorites, removeFromFavorites } = useFavoritesContext();
+
+    console.log('favorites:',favorites)
     const [active, setActive] = useState(false);
-    const [favorites, setFavorites] = useState([]);
+    // const [favorites, setFavorites] = useState([]);
     const {title, id, image} = details;
-    console.log(details)
+    // console.log(details)
     const handleActive = () => {
         setActive(!active);
     };
@@ -19,17 +25,17 @@ function AddToFavorites({details}) {
         
     // }, [active]);
 
-    const handleFavorites = () => {
-      handleActive();
-      addToFavorites();
-  };
+  //   const handleFavorites = () => {
+  //     handleActive();
+  //     addToFavorites();
+  // };
 
-    const addToFavorites = () => {
-      handleActive();
-        setFavorites([...favorites, {title, id, image}]);
-        console.log(favorites)
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-    };
+    // const addToFavorites = () => {
+    //   handleActive();
+    //     // setFavorites([...favorites, {title, id, image}]);
+    //     // console.log(favorites)
+    //     localStorage.setItem('favorites', JSON.stringify(favorites));
+    // };
    
     // const removeFromFavorites = () => {
     //   handleActive();
@@ -41,7 +47,7 @@ function AddToFavorites({details}) {
  
 
   return (
-    <AddToFavBtn className={active ? 'active' : null} onClick={handleFavorites}>
+    <AddToFavBtn className={active ? 'active' : null} onClick={() => addToFavorites(details)}>
         {!active ? 'Add to favorites' : 'Remove from favorites'}
         <div>
         <BsFillSuitHeartFill/>
