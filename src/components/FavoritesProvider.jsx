@@ -2,11 +2,11 @@ import { createContext } from "react"
 
 const FavoritesContext = createContext();
 
-function FavoritesProvider() {
+function FavoritesProvider(props) {
     const favorites = [];
   return (
     <FavoritesContext.Provider value={favorites}>
-        {Children.props}
+        {props.children}
     </FavoritesContext.Provider>
   )
 }

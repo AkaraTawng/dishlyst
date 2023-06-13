@@ -4,24 +4,26 @@ import { BrowserRouter, Link } from "react-router-dom";
 import Search from "./components/Search";
 import { styled } from "styled-components";
 import FavoriteBtn from "./components/FavoriteBtn";
-import { FavoritesProvider } from "./components/FavoritesProviderjsx";
+import { FavoritesProvider } from "./components/FavoritesProvider";
 
 
 
 function App() {
-  return ( <FavoritesProvider>
+  return ( <>
     <div className="App">
-      <BrowserRouter>
-      <FavoriteBtn/>
-      <Nav>
-        <Logo to={'/'}><img src="../img/logo1.png" alt="dishlyst logo"/></Logo>
-      </Nav>
-        <Search/>
-        <Category/>
-        <Pages />
-      </BrowserRouter>
+      <FavoritesProvider>
+        <BrowserRouter>
+          <FavoriteBtn/>
+          <Nav>
+          <Logo to={'/'}><img src="../img/logo1.png" alt="dishlyst logo"/></Logo>
+          </Nav>
+          <Search/>
+          <Category/>
+          <Pages />
+        </BrowserRouter>
+      </FavoritesProvider>
     </div>
-    </FavoritesProvider>);
+  </>);
 }
 
 const Logo = styled(Link)`
