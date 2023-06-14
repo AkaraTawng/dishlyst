@@ -15,6 +15,7 @@ export const useFavoritesContext = () => {
 function FavoritesProvider({children}) {
   const [favorites, setFavorites] = useState([]);
 
+
   const addToFavorites = (dish) => {
     const oldFavorites = [...favorites];
 

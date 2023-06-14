@@ -12,14 +12,23 @@ function AddToFavorites({details}) {
 
   const { favorites, addToFavorites, removeFromFavorites } = useFavoritesContext();
 
-    console.log('favorites:',favorites)
-    const [active, setActive] = useState(false);
+    // console.log('favorites:',favorites)
+  {details && console.log(favorites)}
+    // console.log(details.id, 'id')
+
+    const favoritesChecker = (id) => {
+      const boolean = favorites.some(dish => dish === id);
+      return boolean;
+    }
+
+    // console.log(favoritesChecker(details.id))
+    // const [active, setActive] = useState(false);
     // const [favorites, setFavorites] = useState([]);
-    const {title, id, image} = details;
+    // const {title, id, image} = details;
     // console.log(details)
-    const handleActive = () => {
-        setActive(!active);
-    };
+    // const handleActive = () => {
+    //     setActive(!active);
+    // };
 
     // useEffect(() => {
         
@@ -47,18 +56,36 @@ function AddToFavorites({details}) {
  
 
   return (
-    <AddToFavBtn className={active ? 'active' : null} onClick={() => addToFavorites(details)}>
-        {!active ? 'Add to favorites' : 'Remove from favorites'}
-        <div>
-        <BsFillSuitHeartFill/>
-        </div>
-    </AddToFavBtn>
+    // <AddToFavBtn className={active ? 'active' : null} onClick={() => addToFavorites(details)}>
+    //     {!active ? 'Add to favorites' : 'Remove from favorites'}
+    //     <div>
+    //     <BsFillSuitHeartFill/>
+    //     </div>
+    // </AddToFavBtn>
+    <div>
+      { details && favoritesChecker(details.id) ? 
+          <FavToggleBtn onClick={() => removeFromFavorites(details.id)}>
+          Remove from favorites
+          <div>
+          <BsFillSuitHeartFill/>
+          </div>
+      </FavToggleBtn> : 
+      <FavToggleBtn onClick={() => addToFavorites(details.id)}>
+            Add to favorites
+            <div>
+            <BsFillSuitHeartFill/>
+            </div>
+        </FavToggleBtn>
+    }
+     
+    </div>
+  
   )
 
 };
 
 
-const AddToFavBtn = styled.button`
+const FavToggleBtn = styled.button`
 display: flex;
 justify-content: space-around;
 align-items: center;
