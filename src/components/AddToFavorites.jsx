@@ -12,59 +12,17 @@ function AddToFavorites({details}) {
 
   const { favorites, addToFavorites, removeFromFavorites } = useFavoritesContext();
 
-    // console.log('favorites:',favorites)
   {details && console.log(favorites)}
-    // console.log(details.id, 'id')
 
     const favoritesChecker = (id) => {
       const boolean = favorites.some(dish => dish === id);
       return boolean;
     }
 
-    // console.log(favoritesChecker(details.id))
-    // const [active, setActive] = useState(false);
-    // const [favorites, setFavorites] = useState([]);
-    // const {title, id, image} = details;
-    // console.log(details)
-    // const handleActive = () => {
-    //     setActive(!active);
-    // };
-
-    // useEffect(() => {
-        
-    // }, [active]);
-
-  //   const handleFavorites = () => {
-  //     handleActive();
-  //     addToFavorites();
-  // };
-
-    // const addToFavorites = () => {
-    //   handleActive();
-    //     // setFavorites([...favorites, {title, id, image}]);
-    //     // console.log(favorites)
-    //     localStorage.setItem('favorites', JSON.stringify(favorites));
-    // };
-   
-    // const removeFromFavorites = () => {
-    //   handleActive();
-    //   let filteredFavorites = favorites.filter(favorite => favorite.id !== id);
-    //   setFavorites(filteredFavorites)
-    //   console.log(favorites)
-    // };
-
- 
-
   return (
-    // <AddToFavBtn className={active ? 'active' : null} onClick={() => addToFavorites(details)}>
-    //     {!active ? 'Add to favorites' : 'Remove from favorites'}
-    //     <div>
-    //     <BsFillSuitHeartFill/>
-    //     </div>
-    // </AddToFavBtn>
     <div>
       { details && favoritesChecker(details.id) ? 
-          <FavToggleBtn onClick={() => removeFromFavorites(details.id)}>
+          <FavToggleBtn className='active' onClick={() => removeFromFavorites(details.id)}>
           Remove from favorites
           <div>
           <BsFillSuitHeartFill/>
