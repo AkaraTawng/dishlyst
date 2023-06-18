@@ -1,17 +1,20 @@
 import { useState, useContext } from "react";
 import { styled } from "styled-components";
 import { FavoritesContext } from "../components/FavoritesProvider";
+import { useFavoritesContext } from '../components/FavoritesProvider';
 
 
 function Favorites() {
 
-  const [favList, setFavList] = useState(localStorage.getItem('favorites'));
+  const { favorites, addToFavorites, removeFromFavorites } = useFavoritesContext();
 
-  const favorites = useContext(FavoritesContext);
+
   console.log(favorites)
   return (
     <FavPageContainer>
-     
+      <ul>
+        {favorites.map(favorite => <li>{favorite}</li>)}
+      </ul>
     </FavPageContainer>
   )
 }

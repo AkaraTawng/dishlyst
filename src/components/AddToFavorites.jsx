@@ -12,7 +12,7 @@ function AddToFavorites({details}) {
 
   const { favorites, addToFavorites, removeFromFavorites } = useFavoritesContext();
 
-  {details && console.log(favorites)}
+  // {details && console.log(favorites)}
 
     const favoritesChecker = (id) => {
       const boolean = favorites.some(dish => dish === id);
@@ -59,7 +59,6 @@ const FavToggleBtn = styled.button`
 
   &.active div {
     color: red;
-    margin-left: ;
   }
  
 `;
