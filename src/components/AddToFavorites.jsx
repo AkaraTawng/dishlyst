@@ -25,13 +25,13 @@ function AddToFavorites({details}) {
           <FavToggleBtn className='active' onClick={() => removeFromFavorites(details.id)}>
           Remove from favorites
           <div>
-          <BsFillSuitHeartFill/>
+            <BsFillSuitHeartFill/>
           </div>
       </FavToggleBtn> : 
       <FavToggleBtn onClick={() => addToFavorites(details.id)}>
             Add to favorites
             <div>
-            <BsFillSuitHeartFill/>
+              <BsFillSuitHeartFill/>
             </div>
         </FavToggleBtn>
     }
@@ -44,10 +44,11 @@ function AddToFavorites({details}) {
 
 
 const FavToggleBtn = styled.button`
-display: flex;
-justify-content: space-around;
-align-items: center;
-  padding: .7rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* padding: .7rem 1rem; */
+  padding: .7rem 1.6rem;
   border-radius: .6rem;
   color: white;
   background-color: white;
@@ -55,8 +56,10 @@ align-items: center;
   font-weight: 600;
   margin-bottom: .5rem;
   cursor: pointer;
+
   &.active div {
     color: red;
+    margin-left: ;
   }
  
 `;
