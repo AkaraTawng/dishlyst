@@ -14,15 +14,16 @@ function AddToFavorites({details}) {
 
   // {details && console.log(details, 'fav')}
 
-    const favoritesChecker = (id) => {
-      const boolean = favorites.some(favorite => favorite === id);
+    const favoritesChecker = (dish) => {
+      const boolean = favorites.some(favorite => favorite.id === dish.id);
+      // const boolean = favorites.some(favorite => console.log(favorite.id, 'fav id'));
       return boolean;
     }
 
   return (
     <div>
       {/* check if details has items and check if item already exists in favorites */}
-      { details && favoritesChecker(details.id) ? 
+      {favoritesChecker(details) ? 
           <FavToggleBtn className='active' onClick={() => removeFromFavorites(details.id)}>
           Remove from favorites
           <div>
