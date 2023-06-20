@@ -18,16 +18,17 @@ function FavoritesProvider({children}) {
 
   const addToFavorites = (dish) => {
     const oldFavorites = [...favorites];
-
+    
     const newFavorites = oldFavorites.concat(dish)
-
-    setFavorites(newFavorites);
+    
+    setFavorites(newFavorites);  
+    
   }
-
+console.log(favorites, 'favs')
   const removeFromFavorites = (id) => {
     const oldFavorites = [...favorites];
 
-    const newFavorites = oldFavorites.filter(dish => dish !== id);
+    const newFavorites = oldFavorites.filter(dish => dish.id !== id);
 
     setFavorites(newFavorites);
   }

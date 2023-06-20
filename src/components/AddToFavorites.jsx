@@ -9,18 +9,19 @@ import { useFavoritesContext } from './FavoritesProvider';
 
 
 function AddToFavorites({details}) {
-
+// console.log(details.title, 'details ATF')
   const { favorites, addToFavorites, removeFromFavorites } = useFavoritesContext();
 
-  // {details && console.log(favorites)}
+  // {details && console.log(details, 'fav')}
 
     const favoritesChecker = (id) => {
-      const boolean = favorites.some(dish => dish === id);
+      const boolean = favorites.some(favorite => favorite === id);
       return boolean;
     }
 
   return (
     <div>
+      {/* check if details has items and check if item already exists in favorites */}
       { details && favoritesChecker(details.id) ? 
           <FavToggleBtn className='active' onClick={() => removeFromFavorites(details.id)}>
           Remove from favorites
@@ -28,7 +29,7 @@ function AddToFavorites({details}) {
             <BsFillSuitHeartFill/>
           </div>
       </FavToggleBtn> : 
-      <FavToggleBtn onClick={() => addToFavorites(details.id)}>
+      <FavToggleBtn onClick={() => addToFavorites(details)}>
             Add to favorites
             <div>
               <BsFillSuitHeartFill/>
