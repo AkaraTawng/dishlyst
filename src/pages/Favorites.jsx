@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { styled } from "styled-components";
 import { useFavoritesContext } from '../components/FavoritesProvider';
+import { Link } from "react-router-dom"; 
 
 
 function Favorites() {
@@ -13,7 +14,8 @@ function Favorites() {
     <FavPageContainer>
         {favorites.map(favorite => {
         return <Card>
-          <img src={favorite.image} alt={favorite.title} />
+              <img src={favorite.image} alt={favorite.title} />
+              <FavLink to={'/recipe/' + favorite.id}>{favorite.title}</FavLink>
         
             </Card>
         
@@ -37,5 +39,9 @@ const Card = styled.div`
   justify-content: center;
   align-content: center;
 `;
+
+const FavLink = styled(Link)`
+  
+`
 
 export default Favorites;
