@@ -25,7 +25,7 @@ function Favorites() {
         )
         }) : 
         <Card>
-          <NoFavoritesMessage>You don't have any favorite recipes yet!</NoFavoritesMessage>
+          <NoFavoritesMessage>You don't have any favorite recipes!</NoFavoritesMessage>
         </Card>
         }
     </FavPageContainer>
