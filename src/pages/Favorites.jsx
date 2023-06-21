@@ -8,8 +8,6 @@ function Favorites() {
 
   const { favorites, addToFavorites, removeFromFavorites } = useFavoritesContext();
 
-
-  // console.log(favorites)
   return (
     <FavPageContainer>
         {favorites.length > 0 ? 
@@ -22,7 +20,7 @@ function Favorites() {
         )
         }) : 
         <Card>
-          <NoFavoritesMessage>You don't have any favorites!</NoFavoritesMessage>
+          <NoFavoritesMessage>You don't have any favorite recipes yet!</NoFavoritesMessage>
         </Card>
         }
     </FavPageContainer>
@@ -60,7 +58,7 @@ const FavLink = styled(Link)`
   padding-top: .5rem;
 `;
 
-const NoFavoritesMessage = styled.p`
+const NoFavoritesMessage = styled.h1`
   text-align: center;
 `;
 

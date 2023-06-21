@@ -28,16 +28,7 @@ function Veggie() {
 
     if(check){
       setVeggie(JSON.parse(check));
-    } else{
-      
-      // if(screen.innerWidth < 1280){
-      //   //show 8 items
-      // } else if(screen.innerWidth >= 1280) {
-      //   //show 9 items
-      // }
-     
-      // const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=8&tags=vegetarian`);
-      
+    } else {
       const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}${window.innerWidth < 760 ? '&number=8' : '&number=9' }&tags=vegetarian`);
    
       const data = await api.json();
