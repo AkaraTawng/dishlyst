@@ -12,14 +12,19 @@ function Favorites() {
   // console.log(favorites)
   return (
     <FavPageContainer>
-        {favorites.map(favorite => {
+        {favorites.length > 0 ? 
+        favorites.map(favorite => {
         return (
           <Card>
             <img src={favorite.image} alt={favorite.title}/>
             <FavLink to={'/recipe/' + favorite.id}>{favorite.title}</FavLink>
           </Card>
         )
-        })}
+        }) : 
+        <Card>
+          <NoFavoritesMessage>You don't have any favorites!</NoFavoritesMessage>
+        </Card>
+        }
     </FavPageContainer>
   )
 }
@@ -48,17 +53,15 @@ const Card = styled.div`
   }
 `;
 
-const SImg = styled.img`
-    height: 10rem;
-    width: 12rem;
-    border-radius: 15px;
-`
-
 const FavLink = styled(Link)`
   font-weight: 600;
   font-size: .7rem;
   text-align: center;
   padding-top: .5rem;
-`
+`;
+
+const NoFavoritesMessage = styled.p`
+  text-align: center;
+`;
 
 export default Favorites;

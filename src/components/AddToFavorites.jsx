@@ -1,22 +1,13 @@
-//render in recipe pages
 import { BsFillSuitHeartFill } from 'react-icons/bs';
 import { styled } from "styled-components"
-import { useState, useEffect, useContext } from 'react';
-import { useLocation } from 'react-router-dom';
 import { useFavoritesContext } from './FavoritesProvider';
 
 
-
-
 function AddToFavorites({details}) {
-// console.log(details.title, 'details ATF')
   const { favorites, addToFavorites, removeFromFavorites } = useFavoritesContext();
-
-  // {details && console.log(details, 'fav')}
 
     const favoritesChecker = (dish) => {
       const boolean = favorites.some(favorite => favorite.id === dish.id);
-      // const boolean = favorites.some(favorite => console.log(favorite.id, 'fav id'));
       return boolean;
     }
 
@@ -37,11 +28,8 @@ function AddToFavorites({details}) {
             </div>
         </FavToggleBtn>
     }
-     
     </div>
-  
   )
-
 };
 
 

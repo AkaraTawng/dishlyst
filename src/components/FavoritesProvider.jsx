@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const FavoritesContext = createContext();
 
@@ -15,16 +15,26 @@ export const useFavoritesContext = () => {
 function FavoritesProvider({children}) {
   const [favorites, setFavorites] = useState([]);
 
+  const check = localStorage.getItem('favorites');
 
   const addToFavorites = (dish) => {
     const oldFavorites = [...favorites];
     
     const newFavorites = oldFavorites.concat(dish)
     
+ 
     setFavorites(newFavorites);  
     
-  }
-console.log(favorites, 'favs')
+  }  
+  // if(check){
+  //   setFavorites(JSON.parse(check))
+  // } else {
+  //     localStorage.setItem('favorites', JSON.stringify(favorites));
+  // }
+  // useEffect(() => {
+    
+  //   }, [])
+
   const removeFromFavorites = (id) => {
     const oldFavorites = [...favorites];
 
@@ -32,14 +42,6 @@ console.log(favorites, 'favs')
 
     setFavorites(newFavorites);
   }
-
-
-  // const addToFavorites = () => {
-  //   // handleActive();
-  //     setFavorites([...favorites, {title, id, image}]);
-  //     // console.log(favorites)
-  //     localStorage.setItem('favorites', JSON.stringify(favorites));
-  // };
 
   return (
     <FavoritesContext.Provider value={{favorites, addToFavorites, removeFromFavorites}}>
