@@ -15,6 +15,7 @@ export const useFavoritesContext = () => {
 function FavoritesProvider({children}) {
   const [favorites, setFavorites] = useState([]);
 
+
   const check = localStorage.getItem('favorites');
 
   const addToFavorites = (dish) => {
@@ -22,24 +23,18 @@ function FavoritesProvider({children}) {
     
     const newFavorites = oldFavorites.concat(dish)
     
- 
+    localStorage.setItem('fav', JSON.stringify(newFavorites));
     setFavorites(newFavorites);  
     
   }  
-  // if(check){
-  //   setFavorites(JSON.parse(check))
-  // } else {
-  //     localStorage.setItem('favorites', JSON.stringify(favorites));
-  // }
-  // useEffect(() => {
-    
-  //   }, [])
+
 
   const removeFromFavorites = (id) => {
     const oldFavorites = [...favorites];
 
     const newFavorites = oldFavorites.filter(dish => dish.id !== id);
-
+    
+    localStorage.setItem('fav', JSON.stringify(newFavorites));
     setFavorites(newFavorites);
   }
 
