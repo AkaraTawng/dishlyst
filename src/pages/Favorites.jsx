@@ -17,7 +17,7 @@ function Favorites() {
         return (
           <Card key={favorite.id}>
             <FavImgContainer>
-              <RemoveBtn><VscChromeClose/></RemoveBtn>
+              <RemoveBtn onClick={() => removeFromFavorites(favorite.id)}><VscChromeClose/></RemoveBtn>
               <img src={favorite.image} alt={favorite.title}/>
             </FavImgContainer>
             <FavLink to={'/recipe/' + favorite.id}>{favorite.title}</FavLink>

@@ -13,7 +13,6 @@ function AddToFavorites({details}) {
 
   return (
     <div>
-      {/* check if details has items and check if item already exists in favorites */}
       {favoritesChecker(details) ? 
           <FavToggleBtn className='active' onClick={() => removeFromFavorites(details.id)}>
           Remove from favorites
