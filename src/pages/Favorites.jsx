@@ -2,6 +2,8 @@ import { useState, useContext } from "react";
 import { styled } from "styled-components";
 import { useFavoritesContext } from '../components/FavoritesProvider';
 import { Link } from "react-router-dom"; 
+import { VscChromeClose } from 'react-icons/vsc';
+
 
 
 function Favorites() {
@@ -14,7 +16,10 @@ function Favorites() {
         favorites.map(favorite => {
         return (
           <Card>
-            <img src={favorite.image} alt={favorite.title}/>
+            <FavImgContainer>
+              <RemoveBtn><VscChromeClose/></RemoveBtn>
+              <img src={favorite.image} alt={favorite.title}/>
+            </FavImgContainer>
             <FavLink to={'/recipe/' + favorite.id}>{favorite.title}</FavLink>
           </Card>
         )
@@ -60,6 +65,24 @@ const FavLink = styled(Link)`
 
 const NoFavoritesMessage = styled.h1`
   text-align: center;
+`;
+
+const FavImgContainer = styled.div`
+  align-self: center;
+  position: relative;
+`;
+
+const RemoveBtn = styled.button`
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    color: red;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      color: darkred;
+    }
 `;
 
 export default Favorites;
