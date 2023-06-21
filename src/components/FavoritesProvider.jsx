@@ -16,7 +16,13 @@ function FavoritesProvider({children}) {
   const [favorites, setFavorites] = useState([]);
 
 
-  const check = localStorage.getItem('favorites');
+  const check = localStorage.getItem('fav');
+
+  useEffect(() => {
+    const data = localStorage.getItem('fav');
+    if (data !== null) setFavorites(JSON.parse(data));
+  }, []);
+  
 
   const addToFavorites = (dish) => {
     const oldFavorites = [...favorites];
