@@ -15,7 +15,7 @@ function Favorites() {
         {favorites.length > 0 ? 
         favorites.map(favorite => {
         return (
-          <Card>
+          <Card key={favorite.id}>
             <FavImgContainer>
               <RemoveBtn><VscChromeClose/></RemoveBtn>
               <img src={favorite.image} alt={favorite.title}/>
