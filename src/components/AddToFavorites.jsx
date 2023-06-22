@@ -14,13 +14,13 @@ function AddToFavorites({details}) {
   return (
     <div>
       {favoritesChecker(details) ? 
-          <FavToggleBtn className='active' onClick={() => removeFromFavorites(details.id)}>
+          <FavToggleBtn  className='active' onClick={() => removeFromFavorites(details.id)}>
           Remove from favorites
           <div>
             <BsFillSuitHeartFill/>
           </div>
       </FavToggleBtn> : 
-      <FavToggleBtn onClick={() => addToFavorites(details)}>
+      <FavToggleBtn disabled={details} onClick={() => addToFavorites(details)}>
             Add to favorites
             <div>
               <BsFillSuitHeartFill/>
