@@ -15,15 +15,11 @@ export const useFavoritesContext = () => {
 function FavoritesProvider({children}) {
   const [favorites, setFavorites] = useState([]);
 
-
-  const check = localStorage.getItem('fav');
-
   useEffect(() => {
     const data = localStorage.getItem('fav');
     if (data !== null) setFavorites(JSON.parse(data));
   }, []);
   
-
   const addToFavorites = (dish) => {
     const oldFavorites = [...favorites];
     
@@ -31,9 +27,7 @@ function FavoritesProvider({children}) {
     
     localStorage.setItem('fav', JSON.stringify(newFavorites));
     setFavorites(newFavorites);  
-    
   }  
-
 
   const removeFromFavorites = (id) => {
     const oldFavorites = [...favorites];

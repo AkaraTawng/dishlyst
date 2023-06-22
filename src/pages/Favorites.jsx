@@ -45,7 +45,7 @@ const Card = styled.div`
   justify-content: center;
   align-content: center;
   flex-direction: column;
-  margin-top: 5rem;
+  margin-top: 10rem;
   width: 100%;
 
   img {
@@ -65,6 +65,7 @@ const FavLink = styled(Link)`
 
 const NoFavoritesMessage = styled.h1`
   text-align: center;
+  margin-top: 5rem;
 `;
 
 const FavImgContainer = styled.div`
@@ -74,8 +75,8 @@ const FavImgContainer = styled.div`
 
 const RemoveBtn = styled.button`
     position: absolute;
-    top: -20px;
-    right: -10px;
+    top: -15px;
+    right: -8px;
     color: red;
     background-color: transparent;
     border: none;
