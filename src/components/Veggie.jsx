@@ -111,6 +111,7 @@ const FavToggleBtn = styled.button`
   border: none;
   top: 1rem;
   right: 1.5rem;
+  font-size: 1.4rem;
 
   &.active {
     color: red;
