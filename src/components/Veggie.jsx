@@ -100,31 +100,6 @@ function Veggie() {
   );
 }
 
-// const AddBtn = styled.button`
-//   color: white;
-//   position: absolute;
-//   z-index: 2;
-//   cursor: pointer;
-//   background-color: transparent;
-//   border: none;
-//   top: 1rem;
-//   right: 1.5rem;
-
-//   &:hover {
-//     color: red;
-//   }
-// `;
-
-// const RemoveBtn = styled.button`
-//   color: red;
-//   position: absolute;
-//   z-index: 2;
-//   cursor: pointer;
-//   background-color: transparent;
-//   border: none;
-//   top: 1rem;
-//   right: 1.5rem;
-// `;
 
 
 const FavToggleBtn = styled.button`
