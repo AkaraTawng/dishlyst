@@ -20,7 +20,7 @@ function AddToFavorites({details}) {
             <BsFillSuitHeartFill/>
           </div>
       </FavToggleBtn> : 
-      <FavToggleBtn disabled={details} onClick={() => addToFavorites(details)}>
+      <FavToggleBtn onClick={() => addToFavorites(details)}>
             Add to favorites
             <div>
               <BsFillSuitHeartFill/>
