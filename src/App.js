@@ -6,6 +6,7 @@ import { styled } from "styled-components";
 import FavoriteBtn from "./components/FavoriteBtn";
 import { FavoritesProvider } from "./components/FavoritesProvider";
 
+import { ToastContainer, Flip } from 'react-toastify';
 
 
 function App() {
@@ -14,6 +15,19 @@ function App() {
       
         <BrowserRouter>
         <FavoritesProvider>
+          <ToastContainer 
+            position="top-right"
+            autoClose={500}
+            hideProgressBar
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            transition={Flip}
+          />
           <FavoriteBtn/>
           <Nav>
           <Logo to={'/'}><img src="../img/logo1.png" alt="dishlyst logo"/></Logo>
