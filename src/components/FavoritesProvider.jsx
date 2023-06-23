@@ -1,4 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const FavoritesContext = createContext();
 
@@ -14,6 +16,10 @@ export const useFavoritesContext = () => {
 
 function FavoritesProvider({children}) {
   const [favorites, setFavorites] = useState([]);
+  
+  const notifyAdded = () => toast.success("Added to favorites!");
+
+  const notifyRemoved = () => toast.success("Removed from favorites!");
 
   useEffect(() => {
     const data = localStorage.getItem('fav');
@@ -32,6 +38,8 @@ function FavoritesProvider({children}) {
     
     localStorage.setItem('fav', JSON.stringify(newFavorites));
     setFavorites(newFavorites);  
+
+    notifyAdded();
   }  
 
   const removeFromFavorites = (id) => {
@@ -41,6 +49,8 @@ function FavoritesProvider({children}) {
     
     localStorage.setItem('fav', JSON.stringify(newFavorites));
     setFavorites(newFavorites);
+
+    notifyRemoved();
   }
 
   return (
