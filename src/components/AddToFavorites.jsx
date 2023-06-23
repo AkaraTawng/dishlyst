@@ -4,12 +4,14 @@ import { useFavoritesContext } from './FavoritesProvider';
 
 
 function AddToFavorites({details}) {
-  const { favorites, addToFavorites, removeFromFavorites } = useFavoritesContext();
+  const { favorites, addToFavorites, removeFromFavorites, favoritesChecker } = useFavoritesContext();
 
-    const favoritesChecker = (dish) => {
-      const boolean = favorites.some(favorite => favorite.id === dish.id);
-      return boolean;
-    }
+    favoritesChecker(details);  
+  
+  // const favoritesChecker = (dish) => {
+    //   const boolean = favorites.some(favorite => favorite.id === dish.id);
+    //   return boolean;
+    // }
 
   return (
     <div>
@@ -20,7 +22,7 @@ function AddToFavorites({details}) {
             <BsFillSuitHeartFill/>
           </div>
       </FavToggleBtn> : 
-      <FavToggleBtn disabled={details} onClick={() => addToFavorites(details)}>
+      <FavToggleBtn onClick={() => addToFavorites(details)}>
             Add to favorites
             <div>
               <BsFillSuitHeartFill/>

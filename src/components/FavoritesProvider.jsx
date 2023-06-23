@@ -19,6 +19,11 @@ function FavoritesProvider({children}) {
     const data = localStorage.getItem('fav');
     if (data !== null) setFavorites(JSON.parse(data));
   }, []);
+
+  const favoritesChecker = (dish) => {
+    const boolean = favorites.some(favorite => favorite.id === dish.id);
+    return boolean;
+  }
   
   const addToFavorites = (dish) => {
     const oldFavorites = [...favorites];
@@ -39,7 +44,7 @@ function FavoritesProvider({children}) {
   }
 
   return (
-    <FavoritesContext.Provider value={{favorites, addToFavorites, removeFromFavorites}}>
+    <FavoritesContext.Provider value={{favorites, addToFavorites, removeFromFavorites, favoritesChecker}}>
         {children}
     </FavoritesContext.Provider>
   )

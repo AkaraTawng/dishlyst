@@ -18,7 +18,7 @@ function Veggie() {
 
   const [veggie, setVeggie] = useState([]);
 
-  const { favorites, addToFavorites, removeFromFavorites } = useFavoritesContext();
+  const { favorites, addToFavorites, removeFromFavorites, favoritesChecker } = useFavoritesContext();
   
   useEffect(() => {
           getVeggie();
@@ -41,6 +41,11 @@ function Veggie() {
     };
   };
 
+  const HandlefavoritesToggleClick = (recipe) => {
+    
+    addToFavorites(recipe)
+  }
+
   return (
       <div>
          <ShowNew/>
@@ -52,7 +57,13 @@ function Veggie() {
             {veggie.map((recipe) => {
                 return(
                     <Card key={recipe.id}>
-                      <AddBtn onClick={() => addToFavorites(recipe)}><BsFillSuitHeartFill/></AddBtn>
+                      {favoritesChecker(recipe) ? 
+                      <FavToggleBtn className='active' onClick={() => removeFromFavorites(recipe.id)}>
+                        <BsFillSuitHeartFill/>
+                      </FavToggleBtn> : 
+                      <FavToggleBtn onClick={() => addToFavorites(recipe)}>
+                        <BsFillSuitHeartFill/>
+                      </FavToggleBtn>}
                       <Link to={'/recipe/' + recipe.id}>
                         <h4>{recipe.title}</h4>
                         <img src={recipe.image} alt={recipe.title} />
@@ -89,18 +100,44 @@ function Veggie() {
   );
 }
 
-const AddBtn = styled.button`
+// const AddBtn = styled.button`
+//   color: white;
+//   position: absolute;
+//   z-index: 2;
+//   cursor: pointer;
+//   background-color: transparent;
+//   border: none;
+//   top: 1rem;
+//   right: 1.5rem;
+
+//   &:hover {
+//     color: red;
+//   }
+// `;
+
+// const RemoveBtn = styled.button`
+//   color: red;
+//   position: absolute;
+//   z-index: 2;
+//   cursor: pointer;
+//   background-color: transparent;
+//   border: none;
+//   top: 1rem;
+//   right: 1.5rem;
+// `;
+
+
+const FavToggleBtn = styled.button`
   color: white;
   position: absolute;
   z-index: 2;
   cursor: pointer;
   background-color: transparent;
-  /* padding: 1rem; */
   border: none;
   top: 1rem;
   right: 1.5rem;
 
-  &:hover {
+  &.active {
     color: red;
   }
 `;
