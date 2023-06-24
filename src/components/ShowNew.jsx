@@ -9,6 +9,7 @@ const handleDeleteLocal = () => {
   localStorage.removeItem('popular');
   localStorage.removeItem('gluten free');
   localStorage.removeItem('low carb');
+  localStorage.removeItem('fingerfood');
   window.location.reload(true);
 };
 

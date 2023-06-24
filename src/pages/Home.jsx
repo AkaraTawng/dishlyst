@@ -2,6 +2,7 @@ import Veggie from "../components/Veggie";
 import Popular from "../components/Popular";
 import GlutenFree from "../components/GlutenFree";
 import LowCarb from "../components/LowCarb";
+import Fingerfood from "../components/Fingerfood";
 import { motion } from "framer-motion";
 
 import React from 'react'
@@ -18,6 +19,7 @@ function Home() {
         <Popular/>
         <GlutenFree/>
         <LowCarb/>
+        <Fingerfood/>
       </motion.div>
     )
 }
