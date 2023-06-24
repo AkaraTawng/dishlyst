@@ -2,10 +2,14 @@ import { motion } from "framer-motion";
 import { Link, useParams} from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Wrapper, WrapperSecondary,Card, Gradient} from "../SharedStyles.js";
+import FavoritesToggleBtn from "../components/FavoritesToggleBtn.jsx";
+import { useFavoritesContext } from '../components/FavoritesProvider';
 function Cuisine() {
 
   const [cuisine, setCuisine] = useState([]);
   let params = useParams();
+  const { favoritesChecker, removeFromFavorites, addToFavorites } = useFavoritesContext();
+
   
     const getCuisine = async (name) => {
         const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`)
@@ -28,6 +32,9 @@ function Cuisine() {
       {cuisine.map((item) => {
         return (
           <Card key={item.id}>
+            {favoritesChecker(item) ? 
+                      <FavoritesToggleBtn classes='active' onClick={() => removeFromFavorites(item.id)}></FavoritesToggleBtn> : 
+                      <FavoritesToggleBtn onClick={() => addToFavorites(item)}></FavoritesToggleBtn>}
             <Link to={'/recipe/' + item.id}>
               <img src={item.image} alt="" />
               <h4>{item.title}</h4>

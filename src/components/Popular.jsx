@@ -12,6 +12,7 @@ function Popular() {
     const [popular, setPopular] = useState([]);
     
     const { favoritesChecker, removeFromFavorites, addToFavorites } = useFavoritesContext();
+    
     useEffect(() => {
             getPopular();
         }, []);
