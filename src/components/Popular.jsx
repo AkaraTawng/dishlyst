@@ -3,12 +3,16 @@ import { Splide, SplideSlide } from "@splidejs/react-splide"
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Link } from "react-router-dom";
 import { Wrapper, Card, Gradient, MobileContainer } from "../SharedStyles.js";
+import FavoritesToggleBtn from "./FavoritesToggleBtn";
+import { useFavoritesContext } from '../components/FavoritesProvider';
 
 
 function Popular() {
 
     const [popular, setPopular] = useState([]);
-  
+    
+    const { favoritesChecker, removeFromFavorites, addToFavorites } = useFavoritesContext();
+    
     useEffect(() => {
             getPopular();
         }, []);
@@ -40,6 +44,9 @@ function Popular() {
             {popular.map((recipe) => {
                 return(
                     <Card key={recipe.id}>
+                      {favoritesChecker(recipe) ? 
+                      <FavoritesToggleBtn classes='active' onClick={() => removeFromFavorites(recipe.id)}></FavoritesToggleBtn> : 
+                      <FavoritesToggleBtn onClick={() => addToFavorites(recipe)}></FavoritesToggleBtn>}
                       <Link to={'/recipe/' + recipe.id}>
                         <h4>{recipe.title}</h4>
                         <img src={recipe.image} alt={recipe.title} />
