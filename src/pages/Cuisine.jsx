@@ -33,8 +33,8 @@ function Cuisine() {
         return (
           <Card key={item.id}>
             {favoritesChecker(item) ? 
-                      <FavoritesToggleBtn classes='active' onClick={() => removeFromFavorites(item.id)}></FavoritesToggleBtn> : 
-                      <FavoritesToggleBtn onClick={() => addToFavorites(item)}></FavoritesToggleBtn>}
+            <FavoritesToggleBtn classes='active' onClick={() => removeFromFavorites(item.id)}></FavoritesToggleBtn> : 
+            <FavoritesToggleBtn onClick={() => addToFavorites(item)}></FavoritesToggleBtn>}
             <Link to={'/recipe/' + item.id}>
               <img src={item.image} alt="" />
               <h4>{item.title}</h4>
