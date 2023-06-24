@@ -7,8 +7,9 @@ import { devices } from "../breakpoints";
 import { Wrapper, Card, Gradient, MobileContainer } from "../SharedStyles.js";
 import { useMediaQuery } from 'react-responsive';
 import ShowNew from "./ShowNew";
-import { BsFillSuitHeartFill } from 'react-icons/bs';
 import { useFavoritesContext } from '../components/FavoritesProvider';
+
+import FavoritesToggleBtn from "./FavoritesToggleBtn";
 
 
 
@@ -58,12 +59,8 @@ function Veggie() {
                 return(
                     <Card key={recipe.id}>
                       {favoritesChecker(recipe) ? 
-                      <FavToggleBtn className='active' onClick={() => removeFromFavorites(recipe.id)}>
-                        <BsFillSuitHeartFill/>
-                      </FavToggleBtn> : 
-                      <FavToggleBtn onClick={() => addToFavorites(recipe)}>
-                        <BsFillSuitHeartFill/>
-                      </FavToggleBtn>}
+                      <FavoritesToggleBtn classes='active' onClick={() => removeFromFavorites(recipe.id)}></FavoritesToggleBtn> : 
+                      <FavoritesToggleBtn onClick={() => addToFavorites(recipe)}></FavoritesToggleBtn>}
                       <Link to={'/recipe/' + recipe.id}>
                         <h4>{recipe.title}</h4>
                         <img src={recipe.image} alt={recipe.title} />
