@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { devices } from "../breakpoints";
 import { Wrapper, Card, Gradient, MobileContainer } from "../SharedStyles.js";
-import { useMediaQuery } from 'react-responsive';
 import ShowNew from "./ShowNew";
 import { useFavoritesContext } from '../components/FavoritesProvider';
 
@@ -41,11 +40,6 @@ function Veggie() {
       setVeggie(data.recipes)
     };
   };
-
-  const HandlefavoritesToggleClick = (recipe) => {
-    
-    addToFavorites(recipe)
-  }
 
   return (
       <div>
@@ -96,23 +90,5 @@ function Veggie() {
     </div>
   );
 }
-
-
-
-const FavToggleBtn = styled.button`
-  color: white;
-  position: absolute;
-  z-index: 2;
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  top: 1rem;
-  right: 1.5rem;
-  font-size: 1.4rem;
-
-  &.active {
-    color: red;
-  }
-`;
 
 export default Veggie;
