@@ -6,6 +6,8 @@ import FacebookShareBtn from "../components/FacebookShareBtn";
 import LineShareBtn from "../components/LineShareBtn";
 import TwitterShareBtn from "../components/TwitterShareBtn";
 import PinterestShareBtn from "../components/PinterestShareBtn";
+import LinkedInShareBtn from "../components/LinkedInShareBtn";
+import WhatsAppShareBtn from "../components/WhatsAppShareBtn";
 
 import { devices } from "../breakpoints";
 
@@ -39,6 +41,8 @@ function Recipe() {
             <TwitterShareBtn/>
             <FacebookShareBtn/>
             <LineShareBtn/>
+            <LinkedInShareBtn/>
+            <WhatsAppShareBtn/>
           </ShareButtonsContainer>
           </ShareContainerOuter>
 
