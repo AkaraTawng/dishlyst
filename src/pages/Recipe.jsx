@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 import AddToFavorites from "../components/AddToFavorites";
 import FacebookShareBtn from "../components/FacebookShareBtn";
 import LineShareBtn from "../components/LineShareBtn";
-
+import TwitterShareBtn from "../components/TwitterShareBtn";
 
 import { devices } from "../breakpoints";
 
@@ -34,6 +34,7 @@ function Recipe() {
           <ShareContainerOuter>
           <img src={details.image} alt={details.title} />
           <ShareButtonsContainer>
+            <TwitterShareBtn/>
             <FacebookShareBtn/>
             <LineShareBtn/>
           </ShareButtonsContainer>
