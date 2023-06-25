@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import AddToFavorites from "../components/AddToFavorites";
+import FacebookShareBtn from "../components/FacebookShareBtn";
 
 
 import { devices } from "../breakpoints";
@@ -29,8 +30,10 @@ function Recipe() {
         <h2>{details.title}</h2>
         
         <ButtonImageContainer>
-          
+          <ShareCon>
           <img src={details.image} alt={details.title} />
+          <FacebookShareBtn/>
+          </ShareCon>
 
           <ButtonContainer>
            
@@ -77,6 +80,12 @@ function Recipe() {
 }
 
 
+
+const ShareCon = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+
+` ;
 
 
 const DetailWrapper = styled.div`
