@@ -8,6 +8,8 @@ import TwitterShareBtn from "../components/TwitterShareBtn";
 import PinterestShareBtn from "../components/PinterestShareBtn";
 import LinkedInShareBtn from "../components/LinkedInShareBtn";
 import WhatsAppShareBtn from "../components/WhatsAppShareBtn";
+import { BsShare } from "react-icons/bs";
+import { BsShareFill } from "react-icons/bs";
 
 import { devices } from "../breakpoints";
 
@@ -36,14 +38,19 @@ function Recipe() {
         <ButtonImageContainer>
           <ShareContainerOuter>
           <img src={details.image} alt={details.title} />
-          <ShareButtonsContainer>
-            <PinterestShareBtn/>
-            <TwitterShareBtn/>
-            <FacebookShareBtn/>
-            <LineShareBtn/>
-            <LinkedInShareBtn/>
-            <WhatsAppShareBtn/>
-          </ShareButtonsContainer>
+          
+            <ShareButtonsContainer>
+              <ShareIconContainer>
+                {/* <BsShare/> */}
+                <BsShareFill/>
+              </ShareIconContainer>
+              <PinterestShareBtn/>
+              <TwitterShareBtn/>
+              <FacebookShareBtn/>
+              <LineShareBtn/>
+              <LinkedInShareBtn/>
+              <WhatsAppShareBtn/>
+            </ShareButtonsContainer>
           </ShareContainerOuter>
 
           <ButtonContainer>
@@ -90,17 +97,31 @@ function Recipe() {
   )
 }
 
-
-
 const ShareContainerOuter = styled.div`
   display: flex;
   flex-direction: row-reverse;
-
 ` ;
+
+const ShareIconContainer = styled.div`
+  background: linear-gradient(35deg, #494949, #313131);
+  padding: 1rem .7rem 1rem 1rem;
+  border-radius: 10px 0 0 10px;
+  margin-bottom: .5rem;
+  /* z-index: -1; */
+`;
 
 const ShareButtonsContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 2rem;
+  /* margin-right: -.5rem; */
+  /* background-color: lightgray; */
+  align-items: flex-end;
+
+  &:nth-child(2){
+    font-size: 1.3rem;
+    color: white;
+  }
 `;
 
 
