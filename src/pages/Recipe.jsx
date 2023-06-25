@@ -98,6 +98,7 @@ function Recipe() {
 const ShareContainerOuter = styled.div`
   display: flex;
   flex-direction: column;
+  /* background-color: orange; */
   @media ${devices.tablet} {
     flex-direction: row-reverse;
   }
@@ -105,6 +106,7 @@ const ShareContainerOuter = styled.div`
 
 const ShareIconContainer = styled.div`
 display: none;
+
 @media ${devices.tablet}{
   display: block;
   background: linear-gradient(35deg, #494949, #313131);
@@ -119,10 +121,13 @@ display: none;
 const ShareButtonsContainer = styled.div`
   display: flex;
   justify-content: space-around;
+ 
+
   /* flex-direction: column; */
   /* margin-top: 2rem; */
   /* margin-right: -.5rem; */
   /* background-color: lightgray; */
+  margin-bottom: 2.5rem;
   /* align-items: flex-end; */
 
   @media ${devices.tablet} {
@@ -184,6 +189,7 @@ const DetailWrapper = styled.div`
       width: clamp(17rem, 15.8rem + 6vw, 23rem);
       border-radius: 2rem;
       margin-bottom: 2.5rem;
+      margin-bottom: 1rem;
       object-fit: cover;
       @media ${devices.tablet} {
         width: 25rem;
@@ -224,9 +230,10 @@ const ButtonContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   width: 11rem;
-  height: 11rem;
+  
   @media ${devices.tablet} {
-    margin-left: 5rem;
+    margin-left: 3rem;
+    height: 11rem;
   }
 `;
 
@@ -235,6 +242,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+/* background-color: green; */
   @media ${devices.tablet} {
     display: flex;
     justify-content: center;
