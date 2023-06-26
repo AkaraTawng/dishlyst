@@ -1,8 +1,8 @@
 import { PinterestShareButton, PinterestIcon } from 'react-share'
 
-function PinterestShareBtn({borderRadius}) {
+function PinterestShareBtn({borderRadius, shareUrl}) {
   return (
-    <PinterestShareButton>
+    <PinterestShareButton url={shareUrl}>
         <PinterestIcon size={35} borderRadius={borderRadius}/>
     </PinterestShareButton>
   )

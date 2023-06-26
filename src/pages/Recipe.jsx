@@ -18,12 +18,12 @@ function Recipe() {
   const [details, setDetails] = useState({});
   const [activeTab, setActiveTab] = useState('summary');
   const [borderRadius, setBorderRadius] = useState(15);
+  const shareUrl = 'https://dishlyst.netlify.app/';
 
   const fetchDetails = async () => {
     const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`);
     const detailData = await data.json();
     setDetails(detailData);
-    
   }
   
   useEffect(() => {
@@ -48,12 +48,12 @@ function Recipe() {
               <ShareIconContainer>
                 <BsShareFill/>
               </ShareIconContainer>
-              <PinterestShareBtn borderRadius={borderRadius}/>
-              <TwitterShareBtn borderRadius={borderRadius}/>
-              <FacebookShareBtn borderRadius={borderRadius}/>
-              <LineShareBtn borderRadius={borderRadius}/>
-              <LinkedInShareBtn borderRadius={borderRadius}/>
-              <WhatsAppShareBtn borderRadius={borderRadius}/>
+              <PinterestShareBtn borderRadius={borderRadius} shareUrl={shareUrl}/>
+              <TwitterShareBtn borderRadius={borderRadius} shareUrl={shareUrl}/>
+              <FacebookShareBtn borderRadius={borderRadius} shareUrl={shareUrl}/>
+              <LineShareBtn borderRadius={borderRadius} shareUrl={shareUrl}/>
+              <LinkedInShareBtn borderRadius={borderRadius} shareUrl={shareUrl}/>
+              <WhatsAppShareBtn borderRadius={borderRadius} shareUrl={shareUrl}/>
             </ShareButtonsContainer>
           </ShareContainerOuter>
 

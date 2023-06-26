@@ -1,8 +1,8 @@
 import { LineShareButton, LineIcon} from 'react-share';
 
-function LineShareBtn({borderRadius}) {
+function LineShareBtn({borderRadius, shareUrl}) {
   return (
-    <LineShareButton>
+    <LineShareButton url={shareUrl}>
         <LineIcon size={35} borderRadius={borderRadius}/>
     </LineShareButton>
   )

@@ -1,8 +1,8 @@
 import { LinkedinShareButton, LinkedinIcon } from "react-share"
 
-function LinkedInShareBtn({borderRadius}) {
+function LinkedInShareBtn({borderRadius, shareUrl}) {
   return (
-    <LinkedinShareButton>
+    <LinkedinShareButton url={shareUrl}>
         <LinkedinIcon size={35} borderRadius={borderRadius}/>
     </LinkedinShareButton>
   )
