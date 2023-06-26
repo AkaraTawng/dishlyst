@@ -1,9 +1,9 @@
 import { WhatsappShareButton, WhatsappIcon } from "react-share"
 
-function WhatsAppShareBtn() {
+function WhatsAppShareBtn({borderRadius, shareUrl}) {
   return (
-    <WhatsappShareButton>
-        <WhatsappIcon size={35}/>
+    <WhatsappShareButton url={shareUrl}>
+        <WhatsappIcon size={35} borderRadius={borderRadius}/>
     </WhatsappShareButton>
   )
 }

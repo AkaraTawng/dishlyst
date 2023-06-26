@@ -10,7 +10,6 @@ import LinkedInShareBtn from "../components/LinkedInShareBtn";
 import WhatsAppShareBtn from "../components/WhatsAppShareBtn";
 import { BsShare } from "react-icons/bs";
 import { BsShareFill } from "react-icons/bs";
-
 import { devices } from "../breakpoints";
 
 function Recipe() {
@@ -18,16 +17,22 @@ function Recipe() {
   let params = useParams();
   const [details, setDetails] = useState({});
   const [activeTab, setActiveTab] = useState('summary');
+  const [borderRadius, setBorderRadius] = useState(15);
+  const shareUrl = 'https://dishlyst.netlify.app/';
+
   const fetchDetails = async () => {
     const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`);
     const detailData = await data.json();
     setDetails(detailData);
-    
   }
   
   useEffect(() => {
     fetchDetails();
   }, [params.name]);
+  
+  useEffect(() => {
+      {window.screen.width < 760 ? setBorderRadius(15) : setBorderRadius(0)}
+  }, []);
 
   // console.log(details)
 
@@ -41,15 +46,14 @@ function Recipe() {
           
             <ShareButtonsContainer>
               <ShareIconContainer>
-                {/* <BsShare/> */}
                 <BsShareFill/>
               </ShareIconContainer>
-              <PinterestShareBtn/>
-              <TwitterShareBtn/>
-              <FacebookShareBtn/>
-              <LineShareBtn/>
-              <LinkedInShareBtn/>
-              <WhatsAppShareBtn/>
+              <PinterestShareBtn borderRadius={borderRadius} shareUrl={shareUrl}/>
+              <TwitterShareBtn borderRadius={borderRadius} shareUrl={shareUrl}/>
+              <FacebookShareBtn borderRadius={borderRadius} shareUrl={shareUrl}/>
+              <LineShareBtn borderRadius={borderRadius} shareUrl={shareUrl}/>
+              <LinkedInShareBtn borderRadius={borderRadius} shareUrl={shareUrl}/>
+              <WhatsAppShareBtn borderRadius={borderRadius} shareUrl={shareUrl}/>
             </ShareButtonsContainer>
           </ShareContainerOuter>
 
@@ -99,24 +103,49 @@ function Recipe() {
 
 const ShareContainerOuter = styled.div`
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
+  /* background-color: orange; */
+  @media ${devices.tablet} {
+    flex-direction: row-reverse;
+  }
 ` ;
 
 const ShareIconContainer = styled.div`
+display: none;
+
+@media ${devices.tablet}{
+  display: block;
   background: linear-gradient(35deg, #494949, #313131);
   padding: 1rem .7rem 1rem 1rem;
   border-radius: 10px 0 0 10px;
   margin-bottom: .5rem;
+}
+
   /* z-index: -1; */
 `;
 
 const ShareButtonsContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  margin-top: 2rem;
+  justify-content: space-around;
+ 
+
+  /* flex-direction: column; */
+  /* margin-top: 2rem; */
   /* margin-right: -.5rem; */
   /* background-color: lightgray; */
-  align-items: flex-end;
+  margin-bottom: 2.5rem;
+  /* align-items: flex-end; */
+
+  @media ${devices.tablet} {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+  /* margin-right: -.5rem; */
+  /* background-color: lightgray; */
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+  
 
   &:nth-child(2){
     font-size: 1.3rem;
@@ -166,6 +195,7 @@ const DetailWrapper = styled.div`
       width: clamp(17rem, 15.8rem + 6vw, 23rem);
       border-radius: 2rem;
       margin-bottom: 2.5rem;
+      margin-bottom: 1rem;
       object-fit: cover;
       @media ${devices.tablet} {
         width: 25rem;
@@ -206,9 +236,10 @@ const ButtonContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   width: 11rem;
-  height: 11rem;
+  
   @media ${devices.tablet} {
-    margin-left: 5rem;
+    margin-left: 3rem;
+    height: 11rem;
   }
 `;
 
@@ -217,6 +248,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+/* background-color: green; */
   @media ${devices.tablet} {
     display: flex;
     justify-content: center;
