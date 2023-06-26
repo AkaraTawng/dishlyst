@@ -17,6 +17,8 @@ function Recipe() {
   let params = useParams();
   const [details, setDetails] = useState({});
   const [activeTab, setActiveTab] = useState('summary');
+  const [borderRadius, setBorderRadius] = useState(15);
+
   const fetchDetails = async () => {
     const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`);
     const detailData = await data.json();
@@ -27,6 +29,10 @@ function Recipe() {
   useEffect(() => {
     fetchDetails();
   }, [params.name]);
+  
+  useEffect(() => {
+      {window.screen.width < 760 ? setBorderRadius(15) : setBorderRadius(0)}
+  }, []);
 
   // console.log(details)
 
@@ -42,12 +48,12 @@ function Recipe() {
               <ShareIconContainer>
                 <BsShareFill/>
               </ShareIconContainer>
-              <PinterestShareBtn/>
-              <TwitterShareBtn/>
-              <FacebookShareBtn/>
-              <LineShareBtn/>
-              <LinkedInShareBtn/>
-              <WhatsAppShareBtn/>
+              <PinterestShareBtn borderRadius={borderRadius}/>
+              <TwitterShareBtn borderRadius={borderRadius}/>
+              <FacebookShareBtn borderRadius={borderRadius}/>
+              <LineShareBtn borderRadius={borderRadius}/>
+              <LinkedInShareBtn borderRadius={borderRadius}/>
+              <WhatsAppShareBtn borderRadius={borderRadius}/>
             </ShareButtonsContainer>
           </ShareContainerOuter>
 

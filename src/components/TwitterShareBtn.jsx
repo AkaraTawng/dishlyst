@@ -1,9 +1,9 @@
 import { TwitterShareButton, TwitterIcon} from 'react-share';
 
-function TwitterShareBtn() {
+function TwitterShareBtn({borderRadius}) {
   return (
     <TwitterShareButton>
-        <TwitterIcon size={35}/>
+        <TwitterIcon size={35} borderRadius={borderRadius}/>
     </TwitterShareButton>
   )
 }
