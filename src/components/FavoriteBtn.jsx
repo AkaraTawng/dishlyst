@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import { NavLink, useLocation} from 'react-router-dom';
 import { BsFillSuitHeartFill } from 'react-icons/bs';
 import { VscChromeClose } from 'react-icons/vsc';
+import { FavoritesContext, FavoritesProvider } from "./FavoritesProvider";
 
 function FavoriteBtn() {
 
