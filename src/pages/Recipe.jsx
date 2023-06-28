@@ -34,7 +34,7 @@ function Recipe() {
       {window.screen.width < 760 ? setBorderRadius(15) : setBorderRadius(0)}
   }, []);
 
-  // console.log(details)
+  console.log(Object.keys(details), 'details')
 
   return (
     <DetailWrapper>
@@ -57,9 +57,9 @@ function Recipe() {
             </ShareButtonsContainer>
           </ShareContainerOuter>
 
+          
           <ButtonContainer>
-           
-           <AddToFavorites details={details}/>
+           {Object.keys(details).length !== 0 && <AddToFavorites details={details}/>}
             <Button 
               className={activeTab === 'summary' ? 'active' : ''}
               onClick={() => setActiveTab('summary')}>Nutrition Info
