@@ -1,5 +1,5 @@
 # What
-- Dishlyst is a recipe app used to help you find new dishes to try and give you baking / cooking inspiration. Based on Developedbyed's [tutoria](https://www.youtube.com/watch?v=xc4uOzlndAk&t=226s), I added my own twist on it.
+- Dishlyst is a recipe app used to help you find new dishes to try and give you baking / cooking inspiration. Based on Developedbyed's [tutorial](https://www.youtube.com/watch?v=xc4uOzlndAk&t=226s), I added my own twist on it.
 
  ## Things I added
  - Upadated the color scheme
