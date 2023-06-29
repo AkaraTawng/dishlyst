@@ -2,7 +2,13 @@
 - Dishlyst is a recipe app used to help you find new dishes to try and give you baking / cooking inspiration.
 
 # Technologies
-Built with React, Styled Components, and the Spoonacular API
+- Create React App
+- Styled Components
+- [Spoonacular API](https://spoonacular.com/food-api)
+
+# Notable NPM Packages 
+- [react-toastify](https://www.npmjs.com/package/react-toastify)
+- [react-share](https://github.com/nygardk/react-share)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
