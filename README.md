@@ -8,7 +8,8 @@
  - Social sharing icons
  - Additional categories
  - Favorites list functionality 
- - Display additional info about each recipe 
+ - Display additional info about each recipe
+ - Show new recipes button & functionality
 
 # Technologies
 - Create React App
@@ -18,6 +19,14 @@
 # Notable NPM Packages 
 - [react-toastify](https://www.npmjs.com/package/react-toastify)
 - [react-share](https://github.com/nygardk/react-share)
+
+# Overview
+
+# Features
+
+##
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
