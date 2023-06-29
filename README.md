@@ -24,7 +24,15 @@
 
 # Features
 
-##
+## Keyword Search
+
+## Ready-made Cuisine Category Button Prompts
+
+## Ready-made Popular Categories Based on Popular Diets
+
+## Easy Social Media Sharing to Top Platforms
+
+## Favorites List 
 
 
 # Getting Started with Create React App
