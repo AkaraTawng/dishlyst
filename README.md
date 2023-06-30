@@ -25,15 +25,15 @@
 # Features
 
 ## Keyword Search
-![](./public/gif/key-word-search.gif)
+![keyword search gif](./public/gif/key-word-search.gif)
 ## Ready-made Cuisine Category Button Prompts
-![](./public/gif/cuisine-category-buttons.gif)
+![cuisine category buttons gif](./public/gif/cuisine-category-buttons.gif)
 ## Ready-made Popular Categories Based on Popular Diets
-![](./public/gif/popular-categories-browse.gif)
+![popular diets categories browsing gif](./public/gif/popular-categories-browse.gif)
 ## Easy Social Media Sharing to Top Platforms
-![](./public/gif/social-share.gif)
+![social media sharing gif](./public/gif/social-share.gif)
 ## Favorites List 
-![](./public/gif/favorites-list.gif)
+![favorites list gif](./public/gif/favorites-list.gif)
 
 # Getting Started with Create React App
 
