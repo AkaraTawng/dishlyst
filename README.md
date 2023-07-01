@@ -1,8 +1,42 @@
+
+![dishlyst logo](./public/img/logo1.png)
 # What
-- Dishlyst is a recipe app used to help you find new dishes to try and give you baking / cooking inspiration.
+- Dishlyst is a recipe app used to help you find new dishes to try and give you baking / cooking inspiration. Based on Developedbyed's [tutorial](https://www.youtube.com/watch?v=xc4uOzlndAk&t=226s), I added my own twist on it.
+
+- Check Out the Live [Site](https://dishlyst.netlify.app/)
+
+ ## Things I added
+ - Upadated the color scheme
+ - Social sharing icons
+ - Additional categories
+ - Favorites list functionality 
+ - Display additional info about each recipe
+ - Show new recipes button & functionality
 
 # Technologies
-Built with React, Styled Components, and the Spoonacular API
+- Create React App
+- Styled Components
+- [Spoonacular API](https://spoonacular.com/food-api)
+
+# Notable NPM Packages 
+- [react-toastify](https://www.npmjs.com/package/react-toastify)
+- [react-share](https://github.com/nygardk/react-share)
+
+# Overview
+
+# Features
+
+## Keyword Search
+![keyword search gif](./public/gifs/key-word-search.gif)
+## Ready-made Cuisine Category Button Prompts
+![cuisine category buttons gif](./public/gifs/cuisine-category-buttons.gif)
+## Ready-made Popular Categories Based on Popular Diets
+![popular diets categories browsing gif](./public/gifs/popular-categories-browse.gif)
+## Easy Social Media Sharing to Top Platforms
+![social media sharing gif](./public/gifs/social-share.gif)
+## Favorites List 
+![favorites list gif](./public/gifs/favorites-list.gif)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

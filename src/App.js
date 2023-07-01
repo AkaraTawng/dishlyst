@@ -16,7 +16,7 @@ function App() {
         <BrowserRouter>
         <FavoritesProvider>
           <ToastContainer 
-            position="top-right"
+            position="top-left"
             autoClose={500}
             hideProgressBar
             newestOnTop={false}
