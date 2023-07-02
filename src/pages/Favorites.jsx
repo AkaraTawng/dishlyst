@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import { useFavoritesContext } from '../components/FavoritesProvider';
 import { Link } from "react-router-dom"; 
 import { VscChromeClose } from 'react-icons/vsc';
+import { devices } from "../breakpoints";
 
 
 
@@ -51,6 +52,12 @@ const Card = styled.div`
   img {
     height: 10rem;
     width: 12rem;
+
+    @media ${devices.tablet} {
+      height: 17rem;
+      width: 19rem;
+    }
+
     border-radius: 15px;
     align-self: center;
   }
