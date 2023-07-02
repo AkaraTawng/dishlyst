@@ -18,16 +18,19 @@ function Recipe() {
   const [details, setDetails] = useState({});
   const [activeTab, setActiveTab] = useState('summary');
   const [borderRadius, setBorderRadius] = useState(15);
-  const shareUrl = window.location.href;
+  const [shareUrl, setShareUrl] = useState('');
+  // const shareUrl = window.location.href;
   
 
   const fetchDetails = async () => {
     const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`);
     const detailData = await data.json();
     setDetails(detailData);
+    const url = `https://dishlyst.netlify.app/recipe/${detailData.id}`;
+    setShareUrl(url);
   }
   
-  
+
   useEffect(() => {
     fetchDetails();
   }, [params.name]);
@@ -36,9 +39,6 @@ function Recipe() {
       {window.screen.width < 760 ? setBorderRadius(15) : setBorderRadius(0)}
   }, []);
 
-  // console.log(Object.keys(details), 'details')
-// console.log(shareUrl+details.id, 'test url')
-console.log(window.location.href)
   return (
     <DetailWrapper>
         <h2>{details.title}</h2>
