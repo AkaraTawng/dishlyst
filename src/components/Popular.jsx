@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide"
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Link } from "react-router-dom";
-import { Wrapper, Card, Gradient, MobileContainer } from "../SharedStyles.js";
+import { Wrapper, Card, Gradient, MobileContainer, SplideCard } from "../SharedStyles.js";
 import FavoritesToggleBtn from "./FavoritesToggleBtn";
 import { useFavoritesContext } from '../components/FavoritesProvider';
 
@@ -40,7 +40,7 @@ function Popular() {
           <Wrapper>
             <h3>Popular Picks</h3>
 
-            <MobileContainer>
+            {/* { window.location.innerWidth < 1280 && <MobileContainer>
             {popular.map((recipe) => {
                 return(
                     <Card key={recipe.id}>
@@ -55,9 +55,9 @@ function Popular() {
                     </Card>
                 );
               })}
-            </MobileContainer>
+            </MobileContainer> } */}
 
-            {/* <Splide options={{
+           <Splide options={{
               perPage: 4, 
               arrows: false, 
               pagination: false, 
@@ -67,17 +67,17 @@ function Popular() {
               {popular.map((recipe) => {
                 return(
                   <SplideSlide key={recipe.id}>
-                    <Card>
+                    <SplideCard>
                       <Link to={'/recipe' + recipe.id}>
                         <p>{recipe.title}</p>
                         <img src={recipe.image} alt={recipe.title} />
                         <Gradient/>
                       </Link>
-                    </Card>
+                    </SplideCard>
                   </SplideSlide>
                 );
               })}
-            </Splide> */}
+            </Splide>
           </Wrapper>
     </div>
   )

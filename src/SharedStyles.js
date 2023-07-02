@@ -23,6 +23,7 @@ const WrapperSecondary = styled(Wrapper)`
 const Card = styled.div`
   height: 15rem;
   width: 15rem;
+  width: 15rem;
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
@@ -30,11 +31,12 @@ const Card = styled.div`
 
   @media ${devices.tablet} {
     width: 45%;
+    width: 50rem;
   }
 
   @media ${devices.laptop} {
     width: 23rem;
-    width: 30%;
+    width: 30%; 
     height: 20rem;
   }
 
@@ -66,6 +68,10 @@ const Card = styled.div`
   }
 `;
 
+const SplideCard = styled(Card)`
+  width: 25rem;
+`;
+
 const Gradient = styled.div`
   z-index: 1;
   position: absolute;
@@ -92,6 +98,6 @@ const MobileContainer = styled.div`
   }
 `;
 
-export { Wrapper, WrapperSecondary, Card, Gradient, MobileContainer};
+export { Wrapper, WrapperSecondary, Card, Gradient, MobileContainer, SplideCard};
 
 
