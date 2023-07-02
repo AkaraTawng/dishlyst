@@ -68,6 +68,10 @@ const FavLink = styled(Link)`
   font-size: .7rem;
   text-align: center;
   padding-top: .5rem;
+
+  @media ${devices.tablet} {
+    font-size: 1rem;
+  }
 `;
 
 const NoFavoritesMessage = styled.h1`
@@ -87,6 +91,12 @@ const RemoveBtn = styled.button`
     color: red;
     background-color: transparent;
     border: none;
+    
+    @media ${devices.tablet} {
+      font-size: 1.2rem;
+      top: -23px;
+      right: -10px;
+    }
     cursor: pointer;
     &:hover {
       color: darkred;
