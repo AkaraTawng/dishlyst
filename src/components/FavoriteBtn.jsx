@@ -6,7 +6,6 @@ import { useFavoritesContext } from '../components/FavoritesProvider';
 
 
 function FavoriteBtn() {
-  
   const { favorites } = useFavoritesContext();
   
   let location = useLocation();
