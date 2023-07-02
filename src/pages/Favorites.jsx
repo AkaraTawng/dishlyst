@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import { useFavoritesContext } from '../components/FavoritesProvider';
 import { Link } from "react-router-dom"; 
 import { VscChromeClose } from 'react-icons/vsc';
+import { devices } from "../breakpoints";
 
 
 
@@ -51,6 +52,12 @@ const Card = styled.div`
   img {
     height: 10rem;
     width: 12rem;
+
+    @media ${devices.tablet} {
+      height: 17rem;
+      width: 19rem;
+    }
+
     border-radius: 15px;
     align-self: center;
   }
@@ -61,6 +68,10 @@ const FavLink = styled(Link)`
   font-size: .7rem;
   text-align: center;
   padding-top: .5rem;
+
+  @media ${devices.tablet} {
+    font-size: 1rem;
+  }
 `;
 
 const NoFavoritesMessage = styled.h1`
@@ -80,6 +91,12 @@ const RemoveBtn = styled.button`
     color: red;
     background-color: transparent;
     border: none;
+    
+    @media ${devices.tablet} {
+      font-size: 1.2rem;
+      top: -23px;
+      right: -10px;
+    }
     cursor: pointer;
     &:hover {
       color: darkred;
