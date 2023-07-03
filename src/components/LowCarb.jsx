@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide"
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Link } from "react-router-dom";
-import { Wrapper, Card, Gradient, MobileContainer } from "../SharedStyles.js";
+import { Wrapper, Card, Gradient, MobileContainer, SplideCard} from "../SharedStyles.js";
 import FavoritesToggleBtn from "./FavoritesToggleBtn";
 import { useFavoritesContext } from '../components/FavoritesProvider';
 
@@ -37,7 +37,7 @@ function LowCarb() {
             <Wrapper>
   
               <h3>Low Carb</h3>
-  
+{/*   
               <MobileContainer>
               {lowCarb.map((recipe) => {
                   return(
@@ -53,29 +53,29 @@ function LowCarb() {
                       </Card>
                   );
                 })}
-              </MobileContainer>
+              </MobileContainer> */}
   
-              {/* <Splide options={{
-                perPage: 3, 
+              <Splide options={{
+                perPage: 4, 
                 arrows: false, 
                 pagination: false, 
                 drag: 'free', 
-                gap: '5rem'
+                gap: '-3rem'
               }}>
-                {veggie.map((recipe) => {
+                {lowCarb.map((recipe) => {
                   return(
                     <SplideSlide key={recipe.id}>
-                      <Card>
-                        <Link to={'/recipe/' + recipe.id}>
-                          <p>{recipe.title}</p>
-                          <img src={recipe.image} alt={recipe.title} />
-                          <Gradient/>
-                        </Link>
-                      </Card>
-                    </SplideSlide>
+                    <SplideCard>
+                      <Link to={'/recipe' + recipe.id}>
+                        <h4>{recipe.title}</h4>
+                        <img src={recipe.image} alt={recipe.title} />
+                        <Gradient/>
+                      </Link>
+                    </SplideCard>
+                  </SplideSlide>
                   );
                 })}
-              </Splide> */}
+              </Splide>
             </Wrapper>
       </div>
     );
