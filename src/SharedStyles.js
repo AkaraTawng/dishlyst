@@ -70,6 +70,7 @@ const Card = styled.div`
 
 const SplideCard = styled(Card)`
   width: 25rem;
+  margin: 0 0 0 1rem;
 `;
 
 const Gradient = styled.div`
