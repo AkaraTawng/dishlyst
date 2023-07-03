@@ -36,7 +36,6 @@ const Card = styled.div`
 
   @media ${devices.tablet} {
     width: 45%;
-    width: 50rem;
   }
 
   @media ${devices.laptop} {
