@@ -5,15 +5,19 @@ import { Link } from "react-router-dom";
 import { Wrapper, Card, Gradient, MobileContainer, SplideCard } from "../SharedStyles.js";
 import FavoritesToggleBtn from "./FavoritesToggleBtn";
 import { useFavoritesContext } from '../components/FavoritesProvider';
+import { useScreenWidthContext } from "./ScreenWidthContext.jsx";
 
 function Fingerfood() {
 
     const [fingerfood, setFingerfood] = useState([]);
 
+    const {screenWidth, handleWindowResize} = useScreenWidthContext();
+    
     const { favoritesChecker, removeFromFavorites, addToFavorites } = useFavoritesContext();
 
     useEffect(() => {
         getFingerfood();
+        handleWindowResize();
     }, []);
 
     const getFingerfood = async () => {
@@ -37,8 +41,8 @@ function Fingerfood() {
             <Wrapper>
   
               <h3>Fingerfood</h3>
-{/*   
-              <MobileContainer>
+  
+              {screenWidth < 1280 && <MobileContainer>
               {fingerfood.map((recipe) => {
                   return(
                       <Card key={recipe.id}>
@@ -53,9 +57,9 @@ function Fingerfood() {
                       </Card>
                   );
                 })}
-              </MobileContainer> */}
+              </MobileContainer>}
   
-              <Splide options={{
+              {screenWidth >= 1280 && <Splide options={{
                 perPage: 4, 
                 arrows: false, 
                 pagination: false, 
@@ -75,7 +79,7 @@ function Fingerfood() {
                   </SplideSlide>
                   );
                 })}
-              </Splide>
+              </Splide>}
             </Wrapper>
       </div>
     );
