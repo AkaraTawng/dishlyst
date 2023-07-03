@@ -5,15 +5,19 @@ import { Link } from "react-router-dom";
 import { Wrapper, Card, Gradient, MobileContainer, SplideCard} from "../SharedStyles.js";
 import FavoritesToggleBtn from "./FavoritesToggleBtn";
 import { useFavoritesContext } from '../components/FavoritesProvider';
+import {useScreenWidthContext} from "./ScreenWidthContext.jsx";
 
 function LowCarb() {
 
     const [lowCarb, setLowCarb] = useState([]);
 
+    const {screenWidth, handleWindowResize} = useScreenWidthContext();
+    
     const { favoritesChecker, removeFromFavorites, addToFavorites } = useFavoritesContext();
 
     useEffect(() => {
         getLowCarb();
+        handleWindowResize();
     }, []);
 
     const getLowCarb = async () => {
@@ -37,8 +41,8 @@ function LowCarb() {
             <Wrapper>
   
               <h3>Low Carb</h3>
-{/*   
-              <MobileContainer>
+            
+            { screenWidth < 1280 && <MobileContainer>
               {lowCarb.map((recipe) => {
                   return(
                       <Card key={recipe.id}>
@@ -53,9 +57,9 @@ function LowCarb() {
                       </Card>
                   );
                 })}
-              </MobileContainer> */}
+              </MobileContainer>}
   
-              <Splide options={{
+              {screenWidth >= 1280 && <Splide options={{
                 perPage: 4, 
                 arrows: false, 
                 pagination: false, 
@@ -75,7 +79,7 @@ function LowCarb() {
                   </SplideSlide>
                   );
                 })}
-              </Splide>
+              </Splide>}
             </Wrapper>
       </div>
     );
