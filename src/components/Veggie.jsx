@@ -10,6 +10,8 @@ import { useFavoritesContext } from '../components/FavoritesProvider';
 
 import FavoritesToggleBtn from "./FavoritesToggleBtn";
 
+import { useScreenWidthContext } from "./ScreenWidthContext";
+
 
 
 
@@ -18,10 +20,13 @@ function Veggie() {
 
   const [veggie, setVeggie] = useState([]);
 
+  const {screenWidth, handleWindowResize} = useScreenWidthContext();
+
   const { favorites, addToFavorites, removeFromFavorites, favoritesChecker } = useFavoritesContext();
   
   useEffect(() => {
           getVeggie();
+          handleWindowResize();
       }, []);
 
   const getVeggie = async () => {
@@ -48,7 +53,7 @@ function Veggie() {
 
             <h3>Vegetarian Picks</h3>
 
-            {/* <MobileContainer>
+           {screenWidth < 1280  && <MobileContainer>
             {veggie.map((recipe) => {
                 return(
                     <Card key={recipe.id}>
@@ -63,9 +68,9 @@ function Veggie() {
                     </Card>
                 );
               })}
-            </MobileContainer> */}
+            </MobileContainer> }
 
-            <Splide options={{
+            { screenWidth >= 1280  && <Splide options={{
               perPage: 4, 
               arrows: false, 
               pagination: false, 
@@ -85,7 +90,7 @@ function Veggie() {
                   </SplideSlide>
                 );
               })}
-            </Splide>
+            </Splide> }
           </Wrapper>
     </div>
   );

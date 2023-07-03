@@ -5,31 +5,20 @@ import { Link } from "react-router-dom";
 import { Wrapper, Card, Gradient, MobileContainer, SplideCard } from "../SharedStyles.js";
 import FavoritesToggleBtn from "./FavoritesToggleBtn";
 import { useFavoritesContext } from '../components/FavoritesProvider';
+import { useScreenWidthContext } from "./ScreenWidthContext.jsx";
 
 
 function Popular() {
     const [popular, setPopular] = useState([]);
-    // const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const {screenWidth, handleWindowResize} = useScreenWidthContext();
 
-    // useEffect(() => {
-    //   const handleWindowResize = () => {
-    //     setScreenWidth(window.innerWidth)
-    //     console.log(screenWidth, 'width')
-    //   };
-
-    //   window.addEventListener('resize', handleWindowResize);
-
-    //   return () => {
-    //     window.removeEventListener('resize', handleWindowResize);
-    //   };
-    // }, []) 
-
-    // console.log(screenWidth, 'width')
+    // console.log(screenWidth > 1000, 'width context')
        
     const { favoritesChecker, removeFromFavorites, addToFavorites } = useFavoritesContext();
     
     useEffect(() => {
             getPopular();
+            handleWindowResize();
         }, []);
 
         
@@ -54,7 +43,7 @@ function Popular() {
       <div>
           <Wrapper>
             <h3>Popular Picks</h3>
-{
+{screenWidth < 1280 &&
             <MobileContainer>
             {popular.map((recipe) => {
                 return(
@@ -72,7 +61,7 @@ function Popular() {
               })}
             </MobileContainer> }
 
-           { <Splide options={{
+           {screenWidth >= 1280 && <Splide options={{
               perPage: 4, 
               arrows: false, 
               pagination: false, 

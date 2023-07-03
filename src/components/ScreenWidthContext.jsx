@@ -5,7 +5,9 @@ const ScreenWidthContext = createContext(null);
 
 export const useScreenWidthContext = () => {
   const context = useContext(ScreenWidthContext);
-
+  if(context === undefined) {
+    throw new Error('ScreenWidthContext must be within ScreenWidthContextProvider')
+  }
   return context;
 }
 
@@ -13,21 +15,16 @@ const ScreenWidthProvider = ({children}) => {
 
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-    useEffect(() => {
+  
       const handleWindowResize = () => {
         setScreenWidth(window.innerWidth)
-        console.log(screenWidth, 'width')
-      };
 
       window.addEventListener('resize', handleWindowResize);
 
       return () => {
         window.removeEventListener('resize', handleWindowResize);
       };
-    }, []) 
-
-    console.log(screenWidth, 'width')
-
+    }
 
     return (
         <ScreenWidthContext.Provider value={{screenWidth, handleWindowResize}}>
