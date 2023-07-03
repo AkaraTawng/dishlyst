@@ -5,15 +5,19 @@ import { Link } from "react-router-dom";
 import { Wrapper, Card, Gradient, MobileContainer, SplideCard } from "../SharedStyles.js";
 import FavoritesToggleBtn from "./FavoritesToggleBtn";
 import { useFavoritesContext } from '../components/FavoritesProvider';
+import { useScreenWidthContext } from "./ScreenWidthContext.jsx";
 
 function GlutenFree() {
 
     const [glutenFree, setGlutenFree] = useState([]);
 
+    const {screenWidth, handleWindowResize} = useScreenWidthContext();
+
     const { favoritesChecker, removeFromFavorites, addToFavorites } = useFavoritesContext();
 
     useEffect(() => {
         getGlutenFree();
+        handleWindowResize();
     }, []);
 
     const getGlutenFree = async () => {
@@ -38,7 +42,7 @@ function GlutenFree() {
   
               <h3>Gluten Free</h3>
   
-              {/* <MobileContainer>
+              { screenWidth < 1280 && <MobileContainer>
               {glutenFree.map((recipe) => {
                   return(
                       <Card key={recipe.id}>
@@ -53,9 +57,9 @@ function GlutenFree() {
                       </Card>
                   );
                 })}
-              </MobileContainer> */}
+              </MobileContainer> }
   
-              <Splide options={{
+             { screenWidth >= 1280 && <Splide options={{
                 perPage: 4, 
                 arrows: false, 
                 pagination: false, 
@@ -75,7 +79,7 @@ function GlutenFree() {
                   </SplideSlide>
                   );
                 })}
-              </Splide>
+              </Splide> }
             </Wrapper>
       </div>
     );
