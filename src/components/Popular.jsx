@@ -8,24 +8,23 @@ import { useFavoritesContext } from '../components/FavoritesProvider';
 
 
 function Popular() {
-
     const [popular, setPopular] = useState([]);
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    // const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-    useEffect(() => {
-      const handleWindowResize = () => {
-        setScreenWidth(window.innerWidth)
-        console.log(screenWidth, 'width')
-      };
+    // useEffect(() => {
+    //   const handleWindowResize = () => {
+    //     setScreenWidth(window.innerWidth)
+    //     console.log(screenWidth, 'width')
+    //   };
 
-      window.addEventListener('resize', handleWindowResize);
+    //   window.addEventListener('resize', handleWindowResize);
 
-      return () => {
-        window.removeEventListener('resize', handleWindowResize);
-      };
-    }, []) 
+    //   return () => {
+    //     window.removeEventListener('resize', handleWindowResize);
+    //   };
+    // }, []) 
 
-    console.log(screenWidth, 'width')
+    // console.log(screenWidth, 'width')
        
     const { favoritesChecker, removeFromFavorites, addToFavorites } = useFavoritesContext();
     
@@ -55,8 +54,8 @@ function Popular() {
       <div>
           <Wrapper>
             <h3>Popular Picks</h3>
-
-            {/* { window.location.innerWidth < 1280 && <MobileContainer>
+{
+            <MobileContainer>
             {popular.map((recipe) => {
                 return(
                     <Card key={recipe.id}>
@@ -71,9 +70,9 @@ function Popular() {
                     </Card>
                 );
               })}
-            </MobileContainer> } */}
+            </MobileContainer> }
 
-           <Splide options={{
+           { <Splide options={{
               perPage: 4, 
               arrows: false, 
               pagination: false, 
@@ -93,7 +92,7 @@ function Popular() {
                   </SplideSlide>
                 );
               })}
-            </Splide>
+            </Splide> }
           </Wrapper>
     </div>
   )
