@@ -8,6 +8,11 @@ flex-direction: column;
 justify-content: space-around;
 text-align: center;
 align-items: center;
+
+@media ${devices.tablet} {
+  align-items: normal;
+}
+
 `;
 
 const WrapperSecondary = styled(Wrapper)`
@@ -23,7 +28,7 @@ const WrapperSecondary = styled(Wrapper)`
 const Card = styled.div`
   height: 15rem;
   width: 15rem;
-  width: 15rem;
+  /* width: 15rem; */
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
@@ -65,12 +70,17 @@ const Card = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media ${devices.tablet} {
+      font-size: 1.2rem;
+      bottom: -.5rem;
+    }
   }
 `;
 
 const SplideCard = styled(Card)`
   width: 25rem;
-  margin: 0 0 0 1rem;
+  margin-left: 3.5rem;
 `;
 
 const Gradient = styled.div`
