@@ -10,7 +10,23 @@ import { useFavoritesContext } from '../components/FavoritesProvider';
 function Popular() {
 
     const [popular, setPopular] = useState([]);
-    
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+      const handleWindowResize = () => {
+        setScreenWidth(window.innerWidth)
+        console.log(screenWidth, 'width')
+      };
+
+      window.addEventListener('resize', handleWindowResize);
+
+      return () => {
+        window.removeEventListener('resize', handleWindowResize);
+      };
+    }, []) 
+
+    console.log(screenWidth, 'width')
+       
     const { favoritesChecker, removeFromFavorites, addToFavorites } = useFavoritesContext();
     
     useEffect(() => {
@@ -82,7 +98,6 @@ function Popular() {
     </div>
   )
 }
-
 
 
 export default Popular;
