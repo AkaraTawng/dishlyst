@@ -7,6 +7,7 @@ import FavoriteBtn from "./components/FavoriteBtn";
 import { FavoritesProvider } from "./components/FavoritesProvider";
 
 import { ToastContainer, Flip } from 'react-toastify';
+import ScreenWidthProvider from "./components/ScreenWidthContext";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <div className="App">
       
         <BrowserRouter>
+        <ScreenWidthProvider>
         <FavoritesProvider>
           <ToastContainer 
             position="top-left"
@@ -36,6 +38,7 @@ function App() {
           <Category/>
           <Pages />
           </FavoritesProvider>
+          </ScreenWidthProvider>
         </BrowserRouter>
       
     </div>

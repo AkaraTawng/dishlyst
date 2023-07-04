@@ -2,19 +2,23 @@ import { useEffect, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide"
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Link } from "react-router-dom";
-import { Wrapper, Card, Gradient, MobileContainer } from "../SharedStyles.js";
+import { Wrapper, Card, Gradient, MobileContainer, SplideCard } from "../SharedStyles.js";
 import FavoritesToggleBtn from "./FavoritesToggleBtn";
 import { useFavoritesContext } from '../components/FavoritesProvider';
+import { useScreenWidthContext } from "./ScreenWidthContext.jsx";
 
 
 function Popular() {
-
     const [popular, setPopular] = useState([]);
-    
+    const {screenWidth, handleWindowResize} = useScreenWidthContext();
+
+    // console.log(screenWidth > 1000, 'width context')
+       
     const { favoritesChecker, removeFromFavorites, addToFavorites } = useFavoritesContext();
     
     useEffect(() => {
             getPopular();
+            handleWindowResize();
         }, []);
 
         
@@ -39,7 +43,7 @@ function Popular() {
       <div>
           <Wrapper>
             <h3>Popular Picks</h3>
-
+{screenWidth < 1280 &&
             <MobileContainer>
             {popular.map((recipe) => {
                 return(
@@ -55,34 +59,33 @@ function Popular() {
                     </Card>
                 );
               })}
-            </MobileContainer>
+            </MobileContainer> }
 
-            {/* <Splide options={{
+           {screenWidth >= 1280 && <Splide options={{
               perPage: 4, 
               arrows: false, 
               pagination: false, 
               drag: 'free', 
-              gap: '5rem'
+              gap: '-3rem'
             }}>
               {popular.map((recipe) => {
                 return(
                   <SplideSlide key={recipe.id}>
-                    <Card>
+                    <SplideCard>
                       <Link to={'/recipe' + recipe.id}>
-                        <p>{recipe.title}</p>
+                        <h4>{recipe.title}</h4>
                         <img src={recipe.image} alt={recipe.title} />
                         <Gradient/>
                       </Link>
-                    </Card>
+                    </SplideCard>
                   </SplideSlide>
                 );
               })}
-            </Splide> */}
+            </Splide> }
           </Wrapper>
     </div>
   )
 }
-
 
 
 export default Popular;

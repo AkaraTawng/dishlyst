@@ -2,18 +2,22 @@ import { useEffect, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide"
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Link } from "react-router-dom";
-import { Wrapper, Card, Gradient, MobileContainer } from "../SharedStyles.js";
+import { Wrapper, Card, Gradient, MobileContainer, SplideCard } from "../SharedStyles.js";
 import FavoritesToggleBtn from "./FavoritesToggleBtn";
 import { useFavoritesContext } from '../components/FavoritesProvider';
+import { useScreenWidthContext } from "./ScreenWidthContext.jsx";
 
 function Fingerfood() {
 
     const [fingerfood, setFingerfood] = useState([]);
 
+    const {screenWidth, handleWindowResize} = useScreenWidthContext();
+    
     const { favoritesChecker, removeFromFavorites, addToFavorites } = useFavoritesContext();
 
     useEffect(() => {
         getFingerfood();
+        handleWindowResize();
     }, []);
 
     const getFingerfood = async () => {
@@ -38,7 +42,7 @@ function Fingerfood() {
   
               <h3>Fingerfood</h3>
   
-              <MobileContainer>
+              {screenWidth < 1280 && <MobileContainer>
               {fingerfood.map((recipe) => {
                   return(
                       <Card key={recipe.id}>
@@ -53,29 +57,29 @@ function Fingerfood() {
                       </Card>
                   );
                 })}
-              </MobileContainer>
+              </MobileContainer>}
   
-              {/* <Splide options={{
-                perPage: 3, 
+              {screenWidth >= 1280 && <Splide options={{
+                perPage: 4, 
                 arrows: false, 
                 pagination: false, 
                 drag: 'free', 
-                gap: '5rem'
+                gap: '-3rem'
               }}>
-                {veggie.map((recipe) => {
+                {fingerfood.map((recipe) => {
                   return(
                     <SplideSlide key={recipe.id}>
-                      <Card>
-                        <Link to={'/recipe/' + recipe.id}>
-                          <p>{recipe.title}</p>
-                          <img src={recipe.image} alt={recipe.title} />
-                          <Gradient/>
-                        </Link>
-                      </Card>
-                    </SplideSlide>
+                    <SplideCard>
+                      <Link to={'/recipe' + recipe.id}>
+                        <h4>{recipe.title}</h4>
+                        <img src={recipe.image} alt={recipe.title} />
+                        <Gradient/>
+                      </Link>
+                    </SplideCard>
+                  </SplideSlide>
                   );
                 })}
-              </Splide> */}
+              </Splide>}
             </Wrapper>
       </div>
     );
