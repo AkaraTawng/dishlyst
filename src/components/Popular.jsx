@@ -7,12 +7,9 @@ import FavoritesToggleBtn from "./FavoritesToggleBtn";
 import { useFavoritesContext } from '../components/FavoritesProvider';
 import { useScreenWidthContext } from "./ScreenWidthContext.jsx";
 
-
 function Popular() {
     const [popular, setPopular] = useState([]);
     const {screenWidth, handleWindowResize} = useScreenWidthContext();
-
-    // console.log(screenWidth > 1000, 'width context')
        
     const { favoritesChecker, removeFromFavorites, addToFavorites } = useFavoritesContext();
     
@@ -20,8 +17,6 @@ function Popular() {
             getPopular();
             handleWindowResize();
         }, []);
-
-        
         
     const getPopular = async () => {
     
@@ -72,6 +67,9 @@ function Popular() {
                 return(
                   <SplideSlide key={recipe.id}>
                     <SplideCard>
+                    {favoritesChecker(recipe) ? 
+                      <FavoritesToggleBtn classes='active' onClick={() => removeFromFavorites(recipe.id)}></FavoritesToggleBtn> : 
+                      <FavoritesToggleBtn onClick={() => addToFavorites(recipe)}></FavoritesToggleBtn>}
                       <Link to={'/recipe' + recipe.id}>
                         <h4>{recipe.title}</h4>
                         <img src={recipe.image} alt={recipe.title} />
@@ -86,6 +84,5 @@ function Popular() {
     </div>
   )
 }
-
 
 export default Popular;
