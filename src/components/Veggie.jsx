@@ -81,6 +81,9 @@ function Veggie() {
                 return(
                   <SplideSlide key={recipe.id}>
                     <SplideCard>
+                    {favoritesChecker(recipe) ? 
+                      <FavoritesToggleBtn classes='active' onClick={() => removeFromFavorites(recipe.id)}></FavoritesToggleBtn> : 
+                      <FavoritesToggleBtn onClick={() => addToFavorites(recipe)}></FavoritesToggleBtn>}
                       <Link to={'/recipe/' + recipe.id}>
                         <h4>{recipe.title}</h4>
                         <img src={recipe.image} alt={recipe.title} />
