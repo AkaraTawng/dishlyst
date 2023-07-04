@@ -12,7 +12,6 @@ align-items: center;
 @media ${devices.tablet} {
   align-items: normal;
 }
-
 `;
 
 const WrapperSecondary = styled(Wrapper)`
@@ -21,14 +20,11 @@ const WrapperSecondary = styled(Wrapper)`
     flex-wrap: wrap;
     justify-content: space-around;
   }
-
-  
 `;
 
 const Card = styled.div`
   height: 15rem;
   width: 15rem;
-  /* width: 15rem; */
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
@@ -43,7 +39,6 @@ const Card = styled.div`
     width: 30%; 
     height: 20rem;
   }
-
 
   img {
     border-radius: 2rem;
