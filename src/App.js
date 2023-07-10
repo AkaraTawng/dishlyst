@@ -8,6 +8,7 @@ import { FavoritesProvider } from "./components/FavoritesProvider";
 
 import { ToastContainer, Flip } from 'react-toastify';
 import ScreenWidthProvider from "./components/ScreenWidthContext";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Search/>
           <Category/>
           <Pages />
+          <Footer/>
           </FavoritesProvider>
           </ScreenWidthProvider>
         </BrowserRouter>
