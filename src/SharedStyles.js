@@ -73,8 +73,10 @@ const Card = styled.div`
 `;
 
 const SplideCard = styled(Card)`
-  width: 25rem;
-  margin-left: 3.5rem;
+  width: 85%;
+  margin-left: 1.8rem;
+  /* width: 25rem;
+  margin-left: 3.5rem; */
 `;
 
 const Gradient = styled.div`
