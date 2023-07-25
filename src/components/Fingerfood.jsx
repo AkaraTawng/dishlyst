@@ -64,7 +64,6 @@ function Fingerfood() {
                 arrows: false, 
                 pagination: false, 
                 drag: 'free', 
-                gap: '-3rem'
               }}>
                 {fingerfood.map((recipe) => {
                   return(
