@@ -64,7 +64,6 @@ function GlutenFree() {
                 arrows: false, 
                 pagination: false, 
                 drag: 'free', 
-                gap: '-3rem'
               }}>
                 {glutenFree.map((recipe) => {
                   return(

@@ -64,7 +64,6 @@ function LowCarb() {
                 arrows: false, 
                 pagination: false, 
                 drag: 'free', 
-                gap: '-3rem'
               }}>
                 {lowCarb.map((recipe) => {
                   return(
