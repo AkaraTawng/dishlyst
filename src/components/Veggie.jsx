@@ -75,7 +75,6 @@ function Veggie() {
               arrows: false, 
               pagination: false, 
               drag: 'free', 
-              gap: '-3rem'
             }}>
               {veggie.map((recipe) => {
                 return(
